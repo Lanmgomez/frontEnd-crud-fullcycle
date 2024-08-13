@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import GetUsersData, { usersUrl } from './hooks/CrudUsersData';
+import moment from 'moment';
 
 import './CrudUsers.scss';
 
@@ -18,6 +19,11 @@ type PROP = {
 const CrudUsers = () => {
 
   const [showUsers, setShowUsers] = useState([]);
+
+  const formatDate = (date: string) => {
+    const dateFormat = moment.utc(date).format('DD/MM/YYYY');
+    return dateFormat;
+  };
   
   useEffect(() => {
     const fetchData = async () => {
@@ -60,7 +66,7 @@ const CrudUsers = () => {
 
           <div className="labels">
             <p className='p-name'>Data de nascimento: </p>
-            <p className='p-info'>{user.birthday}</p>
+            <p className='p-info'>{formatDate(user.birthday)}</p>
           </div>
 
           <div className="labels">
@@ -70,12 +76,12 @@ const CrudUsers = () => {
 
           <div className="labels">
             <p className='p-name'>Criado em: </p>
-            <p className='p-info'>{user.createdAt}</p>
+            <p className='p-info'>{formatDate(user.createdAt)}</p>
           </div>
 
           <div className="labels">
             <p className='p-name'>Atualizado em: </p>
-            <p className='p-info'>{user.updatedAt}</p>
+            <p className='p-info'>{formatDate(user.updatedAt)}</p>
           </div>
 
         </div>
