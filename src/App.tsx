@@ -1,10 +1,10 @@
 import './App.scss'
-import CrudUsers from './components/crudUsers/CrudUsers'
+import { Outlet } from 'react-router-dom';
 
 function App() {
   return (
     <>
-      <CrudUsers />
+      <Outlet />
     </>
   )
 }

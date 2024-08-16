@@ -1,29 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import GetUsersData, { usersUrl } from './hooks/CrudUsersData';
-import moment from 'moment';
+import { Empty } from 'antd';
+import { PROP, formatDate } from '../utils';
 
 import './CrudUsers.scss';
-
-type PROP = {
-  id: number,
-  name: string,
-  lastname: string,
-  email: string,
-  address: string,
-  birthday: string,
-  phone: number,
-  createdAt: string,
-  updatedAt: string
-}
+import { Link } from 'react-router-dom';
 
 const CrudUsers = () => {
 
   const [showUsers, setShowUsers] = useState([]);
-
-  const formatDate = (date: string) => {
-    const dateFormat = moment.utc(date).format('DD/MM/YYYY');
-    return dateFormat;
-  };
   
   useEffect(() => {
     const fetchData = async () => {
@@ -37,6 +22,16 @@ const CrudUsers = () => {
 
     fetchData();
   }, []);
+
+  if (showUsers.length === 0) {
+    return (
+      <div>
+        <h1>Usuários</h1>
+          <Empty />
+        <p>Nenhum usuário encontrado...</p>
+      </div>
+    );
+  };
 
   return (
     <div>
@@ -82,6 +77,12 @@ const CrudUsers = () => {
           <div className="labels">
             <p className='p-name'>Atualizado em: </p>
             <p className='p-info'>{formatDate(user.updatedAt)}</p>
+          </div>
+
+          <div>
+            <Link to={`/users/${user.id}`} className='see-more-btn-link'>
+              Ver Mais
+            </Link>
           </div>
 
         </div>
