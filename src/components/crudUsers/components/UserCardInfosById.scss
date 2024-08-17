@@ -1,15 +1,9 @@
-.user-card {
+.user-card-infos {
     display: flex;
-    justify-content: space-between;
-    padding: 1rem;
+    flex-direction: column;
+    align-items: center;
     border: 1px solid gray;
     border-radius: 0.5rem;
-    margin-bottom: 1rem;
-
-    .block-of-informations {
-        display: flex;
-        flex-direction: column;
-    }
 
     p {
         display: flex;
@@ -29,13 +23,5 @@
             color: gray;
             font-weight: normal;
         }
-    }
-
-    .see-more-btn-link {
-        background-color: rgb(66, 66, 230);
-        color: white;
-        padding: 0.5rem;
-        border-radius: 0.5rem;
-        text-decoration: none;
     }
 }

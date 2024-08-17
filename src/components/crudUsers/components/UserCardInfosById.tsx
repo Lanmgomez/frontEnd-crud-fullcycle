@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import GetUsersData, { usersUrl } from '../hooks/CrudUsersData';
 import { formatDate, PROP } from '../../utils';
 
-import '../Crud.scss';
+import './UserCardInfosById.scss';
 
 const UserCardInfosById = () => {
   const { id } = useParams<{ id: string }>();
