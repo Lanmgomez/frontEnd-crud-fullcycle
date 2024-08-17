@@ -2,8 +2,8 @@ import { createRoot } from 'react-dom/client';
 import App from './App.tsx';
 import './index.scss';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import IsolateItemData from './components/crudUsers/components/IsolateItemData.tsx';
-import CrudUsers from './components/crudUsers/CrudUsers.tsx';
+import UserCardInfosById from './components/crudUsers/components/UserCardInfosById.tsx';
+import Crud from './components/crudUsers/Crud.tsx';
 
 const routes = createBrowserRouter([
   {
@@ -11,11 +11,11 @@ const routes = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <CrudUsers />
+        element: <Crud />
       },
       { 
         path: "/users/:id", 
-        element: <IsolateItemData /> 
+        element: <UserCardInfosById /> 
       },
     ],
   }

@@ -3,7 +3,9 @@ import { useParams } from 'react-router-dom';
 import GetUsersData, { usersUrl } from '../hooks/CrudUsersData';
 import { formatDate, PROP } from '../../utils';
 
-const IsolateItemData = () => {
+import '../Crud.scss';
+
+const UserCardInfosById = () => {
   const { id } = useParams<{ id: string }>();
 
   const [showUser, setShowUser] = useState<PROP>();
@@ -22,8 +24,8 @@ const IsolateItemData = () => {
   }, [id]);
 
   return (
-    <div>
-      <h1>Item ID: {id}</h1>
+    <div className="user-card-infos">
+      <h1>{showUser?.name}</h1>
         <div>
           <div className="labels">
             <p className='p-name'>Nome: </p>
@@ -70,5 +72,5 @@ const IsolateItemData = () => {
   );
 };
 
-export default IsolateItemData;
+export default UserCardInfosById;
 

@@ -1,12 +1,15 @@
 .user-card {
     display: flex;
-    flex-direction: column;
-    align-items: left;
-    justify-content: center;
+    justify-content: space-between;
     padding: 1rem;
     border: 1px solid gray;
     border-radius: 0.5rem;
     margin-bottom: 1rem;
+
+    .block-of-informations {
+        display: flex;
+        flex-direction: column;
+    }
 
     p {
         display: flex;
@@ -34,5 +37,13 @@
         padding: 0.5rem;
         border-radius: 0.5rem;
         text-decoration: none;
+    }
+
+    .user-card-infos {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border: 1px solid gray;
+        border-radius: 0.5rem;
     }
 }
