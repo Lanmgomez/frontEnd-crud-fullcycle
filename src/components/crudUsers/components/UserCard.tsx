@@ -1,6 +1,6 @@
-import React from 'react';
 import { PROP } from '../../utils';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { Button } from 'antd';
 
 import '../Crud.scss';
 
@@ -8,8 +8,15 @@ type PROP_COMPONENT = {
     showUsers: PROP[]
 };
 const UserCard = ({ showUsers }: PROP_COMPONENT) => {
+
+  const navigate = useNavigate();  
+  const SeeMoreDetails = (id: number) => () => {
+    navigate(`/users/${id}`);
+  };
+
   return (
     <div>
+        <h1>Usuários</h1>
         {showUsers?.map((user: PROP) => (
             <div key={user.id} className="user-card">
 
@@ -31,9 +38,13 @@ const UserCard = ({ showUsers }: PROP_COMPONENT) => {
                 </div>
     
                 <div>
-                    <Link to={`/users/${user.id}`} className='see-more-btn-link'>
+                    <Button 
+                        type='primary' 
+                        className='btn-see-more-details'
+                        onClick={SeeMoreDetails(user.id)}
+                    >
                         Ver Mais
-                    </Link>
+                    </Button>
                 </div>
   
           </div>

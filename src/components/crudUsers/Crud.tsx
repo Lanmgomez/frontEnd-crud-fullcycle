@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import GetUsersData, { usersUrl } from './hooks/CrudUsersData';
-import { Empty } from 'antd';
 
 import './Crud.scss';
 import UserCard from './components/UserCard';
+import EmptyUsers from './components/EmptyUsers/EmptyUsers';
 
 const Crud = () => {
 
@@ -23,18 +23,11 @@ const Crud = () => {
   }, []);
 
   if (showUsers.length === 0) {
-    return (
-      <div>
-        <h1>Usuários</h1>
-          <Empty />
-        <p>Nenhum usuário encontrado...</p>
-      </div>
-    );
+    return <EmptyUsers />;
   };
 
   return (
-    <div>
-      <h1>Usuários</h1>
+    <div className='crud-container'>
       <UserCard showUsers={showUsers} />
     </div>
   )

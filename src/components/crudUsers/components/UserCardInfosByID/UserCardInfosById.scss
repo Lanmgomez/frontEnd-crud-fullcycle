@@ -1,0 +1,48 @@
+.user-card-infos {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    border-radius: 0.5rem;
+    border: 1px solid rgba(49, 85, 245, 0.425);
+    box-shadow: 0 0 20px rgba(49, 85, 245, 0.3) !important; 
+
+    .user-title {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+
+        .buttons {
+            width: 150px;
+            margin-top: 35px;
+            margin-right: 40px;
+            display: flex;
+            justify-content: space-between;
+        };
+    };
+
+    .h1-title-user, 
+    .labels {
+        margin-left: 40px;
+    };
+
+    p {
+        display: flex;
+        margin-left: 0;
+        font-weight: bolder;
+    };
+
+    .labels {
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 1rem;
+
+        .p-name {
+            width: 200px;
+        };
+
+        .p-info {
+            color: gray;
+            font-weight: normal;
+        };
+    };
+};
