@@ -1,4 +1,5 @@
 import moment from "moment";
+import { notification } from 'antd';
 export type PROP = {
     id: number,
     name: string,
@@ -14,4 +15,12 @@ export type PROP = {
 export const formatDate = (date: string | undefined) => {
     const dateFormat = moment.utc(date).format('DD/MM/YYYY');
     return dateFormat;
+};
+
+export const handleSuccessNotification = (message: string, description: string) => {
+    notification.open({
+        type: 'success',
+        message: message,
+        description: description,
+    });
 };

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import GetUsersData, { usersUrl } from './hooks/CrudUsersData';
+import { usersUrl, GetUsersData } from './hooks/CrudUsersData';
 
 import './Crud.scss';
 import UserCard from './components/UserCard';

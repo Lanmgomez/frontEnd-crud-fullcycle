@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import GetUsersData, { usersUrl } from '../../hooks/CrudUsersData';
+import { usersUrl, GetUsersData } from '../../hooks/CrudUsersData';
 import { formatDate, PROP } from '../../../utils';
 
 import './UserCardInfosById.scss';
