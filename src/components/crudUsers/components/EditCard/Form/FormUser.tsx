@@ -8,6 +8,7 @@ import Modals from '../Modals/Modals';
 import { GetUsersData, usersUrl } from '../../../hooks/CrudUsersData';
 import { useParams } from 'react-router-dom';
 import { PROPS_FORM } from '../EditCard';
+import ErrorMessage from '../ErrorMessages/ErrorMessage';
 
 const FormUser = () => {
 
@@ -18,6 +19,8 @@ const FormUser = () => {
     submitForm, 
     setFieldValue, 
     setValues, 
+    errors,
+    touched,
     values 
   } = useFormikContext <PROPS_FORM> ();
   
@@ -58,6 +61,7 @@ const FormUser = () => {
           value={values.name}
         />  
       </FormAntd.Item>
+      <ErrorMessage error={errors.name} touched={touched.name} />
 
       <span className='form-span'>Sobrenome:</span>
       <FormAntd.Item>
@@ -70,6 +74,7 @@ const FormUser = () => {
           value={values.lastname}
         />  
       </FormAntd.Item>
+      <ErrorMessage error={errors.lastname} touched={touched.lastname} />
 
       <span className='form-span'>Email:</span>
       <FormAntd.Item>
@@ -82,6 +87,7 @@ const FormUser = () => {
           value={values.email}
         />  
       </FormAntd.Item>
+      <ErrorMessage error={errors.email} touched={touched.email} />
 
       <span className='form-span'>Data de nascimento:</span>
       <FormAntd.Item>
@@ -94,6 +100,7 @@ const FormUser = () => {
           value={values.birthday}
         />  
       </FormAntd.Item>
+      <ErrorMessage error={errors.birthday} touched={touched.birthday} />
 
       <span className='form-span'>Telefone:</span>
       <FormAntd.Item>
@@ -106,6 +113,7 @@ const FormUser = () => {
           value={values.phone}
         />  
       </FormAntd.Item>
+      <ErrorMessage error={errors.phone} touched={touched.phone} />
 
       <span className='form-span'>Endereço:</span>
       <FormAntd.Item>
@@ -118,6 +126,7 @@ const FormUser = () => {
           value={values.address}
         />  
       </FormAntd.Item>
+      <ErrorMessage error={errors.address} touched={touched.address} />
 
       <div className='form-buttons'>
         <Button onClick={() => setIsModalOpen(true)}>

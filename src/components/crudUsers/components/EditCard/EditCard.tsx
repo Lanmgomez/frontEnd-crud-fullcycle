@@ -2,7 +2,7 @@ import { Formik } from 'formik';
 import FormUser from './Form/FormUser';
 import { validationSchema } from './validations'; 
 import { useNavigate, useParams } from 'react-router-dom';
-import { handleSuccessNotification } from '../../../utils';
+import { handleErrorNotification, handleSuccessNotification } from '../../../utils';
 import { UpdateUsersData, usersUrl } from '../../hooks/CrudUsersData';
 export type PROPS_FORM =  {
   name: string;
@@ -38,6 +38,7 @@ function EditCard() {
       navigate("/");
     } 
     catch (error) {
+      handleErrorNotification('Erro ao editar o usuário', 'Tente novamente mais tarde');
       console.log(error);
     };
   };

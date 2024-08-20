@@ -24,3 +24,11 @@ export const handleSuccessNotification = (message: string, description: string) 
         description: description,
     });
 };
+
+export const handleErrorNotification = (message: string, description: string) => {
+    notification.open({
+        type: 'error',
+        message: message,
+        description: description,
+    });
+};
