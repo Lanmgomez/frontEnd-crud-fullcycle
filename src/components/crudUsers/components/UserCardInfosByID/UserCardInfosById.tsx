@@ -1,17 +1,37 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { usersUrl, GetUsersData } from '../../hooks/CrudUsersData';
-import { formatDate, PROP } from '../../../utils';
+import { usersUrl, GetUsersData, DeleteUser } from '../../hooks/CrudUsersData';
+import { formatDate, handleSuccessNotification, PROP } from '../../../utils';
 
 import './UserCardInfosById.scss';
 import { Button } from 'antd';
+import Modals from '../EditCard/Modals/Modals';
 
 const UserCardInfosById = () => {
   const { id } = useParams<{ id: string }>();
 
-  const [showUser, setShowUser] = useState<PROP>();
+  const [showUser, setShowUser] = useState <PROP> ();
+  const [isModalOpen, setIsModalOpen] = useState <boolean> (false);
 
   const navigate = useNavigate();
+  const handleConfirmUserDelete = async (id: string) => {
+    if (!id) {
+      return;
+    };
+
+    try {
+      await DeleteUser(`${usersUrl}/${id}`, { ...showUser });
+
+      navigate("/");
+      handleSuccessNotification(
+        'Usuário deletado com sucesso!', 
+        'O item foi excluído com sucesso.'
+      );
+
+    } catch (error) {
+      console.log(error);
+    };
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -25,6 +45,15 @@ const UserCardInfosById = () => {
 
     fetchData();
   }, [id]);
+
+  const modalTitle = () => {
+    return (
+      <div className='modal-title'>
+        <i className="bi bi-exclamation-circle-fill" />
+        <p className='p-modal-title'>Tem certeza que deseja excluir este item ?</p>
+      </div>
+    );
+  };
 
   return (
     <div className="user-card-infos">
@@ -45,9 +74,25 @@ const UserCardInfosById = () => {
           >
             Editar
           </Button>
+
+          <Button
+            className='delete-btn'
+            onClick={() => setIsModalOpen(true)}
+          >
+            Excluir
+          </Button>
         </div>
       </div>
 
+      <Modals 
+        id={String(id)}
+        title={modalTitle()} 
+        content={"Se excluir este item, essa ação não poderá ser desfeita!"} 
+        isModalOpen={isModalOpen} 
+        setIsModalOpen={setIsModalOpen} 
+        handleConfirmUserDelete={handleConfirmUserDelete}
+      />
+      
       <div className="labels">
         <p className='p-name'>Nome: </p>
         <p className='p-info'>{showUser?.name}</p>
@@ -97,4 +142,3 @@ const UserCardInfosById = () => {
 };
 
 export default UserCardInfosById;
-
