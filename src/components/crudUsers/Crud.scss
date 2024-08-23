@@ -2,6 +2,12 @@
     display: flex;
     justify-content: center;
 
+    .users-title-and-create-new-user-btn {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    };
+
     .user-card {
         display: flex;
         justify-content: space-between;

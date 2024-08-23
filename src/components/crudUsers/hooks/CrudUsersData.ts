@@ -52,3 +52,21 @@ export const DeleteUser = async (url: string, body: object) => {
         throw error;
     };
 };
+
+export const CreateNewUser = async (url: string, body: object) => {
+    try {
+        const response = await fetch(url, {
+            mode: "cors",
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(body),
+        });
+
+        const data = await response.json();
+        return data;
+        
+    } catch (error) {
+        console.log(error);
+        throw error;
+    };
+};

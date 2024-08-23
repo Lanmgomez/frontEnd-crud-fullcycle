@@ -16,7 +16,16 @@ const UserCard = ({ showUsers }: PROP_COMPONENT) => {
 
   return (
     <div>
-        <h1>Usuários</h1>
+        <div className='users-title-and-create-new-user-btn'>
+            <h1>Usuários</h1>
+            <Button
+                type="primary"
+                onClick={() => navigate('/users/create-user')}
+            >
+                Adicionar Usuário
+            </Button>
+        </div>
+        
         {showUsers?.map((user: PROP) => (
             <div key={user.id} className="user-card">
 
