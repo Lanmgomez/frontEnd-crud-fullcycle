@@ -1,9 +1,10 @@
 import { Form as FormAntd, Input } from 'antd';
 import { useFormikContext, Form } from 'formik';
-import { PROPS_FORM } from '../../EditCard';
+import { PROPS_FORM } from '../../EditCard/EditCard';
 
 import '../CreateUser.scss';
 import ErrorMessage from '../../ErrorMessages/ErrorMessage';
+import { MaskPhone } from '../../../../utils';
 
 const RegisterStep2 = () => {
 
@@ -16,29 +17,30 @@ const RegisterStep2 = () => {
 
   return (
     <Form className='form'>
-      <span className='form-span'>Data de nascimento:</span>
+      <span className='form-span'>Email:</span>
       <FormAntd.Item>
         <Input 
-          name="birthday"
+          name="email"
           className='input-form'
-          placeholder="Digite sua data de nascimento..."
+          placeholder="Digite seu e-mail..."
           type="text"
-          onChange={(e) => setFieldValue('birthday', e.target.value)}
-          value={values.birthday}
+          onChange={(e) => setFieldValue('email', e.target.value)}
+          value={values.email}
         />  
       </FormAntd.Item>
-      <ErrorMessage error={errors.birthday} touched={touched.birthday} />
+      <ErrorMessage error={errors.email} touched={touched.email} />
 
       <span className='form-span'>Telefone:</span>
       <FormAntd.Item>
         <Input 
           name="phone"
+          maxLength={15}
           className='input-form'
           placeholder="Digite seu telefone..."
           type="text"
           onChange={(e) => setFieldValue('phone', e.target.value)}
-          value={values.phone}
-        />  
+          value={MaskPhone(values.phone)}
+        />
       </FormAntd.Item>
       <ErrorMessage error={errors.phone} touched={touched.phone} />
 

@@ -1,7 +1,7 @@
 import Crud from '../../Crud';
 import UserCardInfosById from '../UserCardInfosByID/UserCardInfosById';
 import EditCard from '../EditCard/EditCard';
-import CreateUser from '../EditCard/CreateUser/CreateUser';
+import CreateUser from '../CreateUser/CreateUser';
 
 export const Routes = [
   {

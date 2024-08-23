@@ -1,10 +1,10 @@
 import { Formik } from 'formik';
-import { PROPS_FORM } from '../EditCard';
+import { PROPS_FORM } from '../EditCard/EditCard';
 import MultiStepForm from './MultiStepForm/MultiStepForm';
-import { validationSchema } from '../validations';
-import { CreateNewUser, usersUrl } from '../../../hooks/CrudUsersData';
+import { validationSchema } from '../EditCard/validations';
+import { CreateNewUser, usersUrl } from '../../hooks/CrudUsersData';
 import { useNavigate } from 'react-router-dom';
-import { handleSuccessNotification } from '../../../../utils';
+import { handleSuccessNotification } from '../../../utils';
 
 const initialValues: PROPS_FORM = {
   name: '',
@@ -17,13 +17,12 @@ const initialValues: PROPS_FORM = {
 
 const CreateUser = () => {
 
-  const navigate = useNavigate();  
+  const navigate = useNavigate(); 
 
   const handleCreateUser = async (values: PROPS_FORM) => {
     if (!values) {
       return;  
     };
-    console.log(values);
 
     try {
         await CreateNewUser(usersUrl, values);

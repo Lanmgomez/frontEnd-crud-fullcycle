@@ -2,13 +2,14 @@ import { Button, DatePicker, Form as FormAntd, Input } from 'antd';
 import { useFormikContext, Form } from 'formik';
 
 import '../EditCard.scss';
-import '../Modals/Modals.scss';
+import '../../Modals/Modals.scss';
 import { useEffect, useState } from 'react';
-import Modals from '../Modals/Modals';
+import Modals from '../../Modals/Modals';
 import { GetUsersData, usersUrl } from '../../../hooks/CrudUsersData';
 import { useParams } from 'react-router-dom';
 import { PROPS_FORM } from '../EditCard';
-import ErrorMessage from '../ErrorMessages/ErrorMessage';
+import ErrorMessage from '../../ErrorMessages/ErrorMessage';
+import moment from 'moment';
 
 const FormUser = () => {
 
@@ -91,14 +92,14 @@ const FormUser = () => {
 
       <span className='form-span'>Data de nascimento:</span>
       <FormAntd.Item>
-        <Input 
+        <DatePicker 
           name="birthday"
+          format="DD/MM/YYYY"
           className='input-form'
-          placeholder="Digite sua data de nascimento..."
-          type="text"
-          onChange={(e) => setFieldValue('birthday', e.target.value)}
-          value={values.birthday}
-        />  
+          placeholder="Selecione sua data de nascimento..."
+          value={values.birthday ? moment(values.birthday) : null}
+          disabled
+        />
       </FormAntd.Item>
       <ErrorMessage error={errors.birthday} touched={touched.birthday} />
 

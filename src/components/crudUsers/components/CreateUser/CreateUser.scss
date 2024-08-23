@@ -1,5 +1,12 @@
 .create-user {
 
+    .steps-container {
+        display: flex;
+        flex-direction: column;
+        width: 500px;
+        margin: 0 auto;
+    };
+
     .steps-content {
         display: flex;
         flex-direction: column;
@@ -10,9 +17,10 @@
 
     .steps-action {
         display: flex;
-        justify-content: center;
         text-align: right;
         margin-top: 15px;
+        justify-content: end;
+        margin-right: 100px;
     };
 
     .form {

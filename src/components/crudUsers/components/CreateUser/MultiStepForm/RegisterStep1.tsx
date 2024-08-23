@@ -1,9 +1,10 @@
-import { Form as FormAntd, Input } from 'antd';
+import { DatePicker, Form as FormAntd, Input } from 'antd';
 import { Form, useFormikContext } from 'formik';
 
 import '../CreateUser.scss';
-import { PROPS_FORM } from '../../EditCard';
+import { PROPS_FORM } from '../../EditCard/EditCard';
 import ErrorMessage from '../../ErrorMessages/ErrorMessage';
+import moment, { Moment } from 'moment';
 
 const RegisterStep1 = () => {
 
@@ -13,6 +14,12 @@ const RegisterStep1 = () => {
     touched, 
     values 
   } = useFormikContext <PROPS_FORM> ();
+
+  const handleFormatDate = (date: Moment) => {
+    const formattedBirthISO = moment.utc(date).format('YYYY-MM-DD');
+
+    return setFieldValue('birthday', formattedBirthISO);
+  };
 
   return (
     <Form className='form'>
@@ -42,18 +49,19 @@ const RegisterStep1 = () => {
       </FormAntd.Item>
       <ErrorMessage error={errors.lastname} touched={touched.lastname} />
 
-      <span className='form-span'>Email:</span>
+      <span className='form-span'>Data de nascimento:</span>
       <FormAntd.Item>
-        <Input 
-          name="email"
+        <DatePicker 
+          name="birthday"
+          format="DD/MM/YYYY"
           className='input-form'
-          placeholder="Digite seu e-mail..."
-          type="text"
-          onChange={(e) => setFieldValue('email', e.target.value)}
-          value={values.email}
-        />  
+          placeholder="Selecione sua data de nascimento..."
+          onChange={(date) => handleFormatDate(date)}
+          value={values.birthday ? moment(values.birthday) : null}
+          disabledDate={(date) => date > moment().endOf('day')} // disabled future dates
+        />
       </FormAntd.Item>
-      <ErrorMessage error={errors.email} touched={touched.email} />
+      <ErrorMessage error={errors.birthday} touched={touched.birthday} />
 
     </Form>
   );

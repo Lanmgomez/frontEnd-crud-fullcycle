@@ -5,7 +5,7 @@ import { formatDate, handleSuccessNotification, PROP } from '../../../utils';
 
 import './UserCardInfosById.scss';
 import { Button } from 'antd';
-import Modals from '../EditCard/Modals/Modals';
+import Modals from '../Modals/Modals';
 
 const UserCardInfosById = () => {
   const { id } = useParams<{ id: string }>();
