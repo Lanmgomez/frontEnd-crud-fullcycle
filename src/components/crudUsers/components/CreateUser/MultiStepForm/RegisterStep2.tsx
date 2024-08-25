@@ -17,7 +17,11 @@ const RegisterStep2 = () => {
 
   return (
     <Form className='form'>
-      <span className='form-span'>Email:</span>
+      <h4 className='form-title'>Preencha todos os campos abaixo</h4>
+      
+      <span className='form-span'>
+        Email: <span className='asterisk'>*</span>
+      </span>
       <FormAntd.Item>
         <Input 
           name="email"
@@ -30,7 +34,9 @@ const RegisterStep2 = () => {
       </FormAntd.Item>
       <ErrorMessage error={errors.email} touched={touched.email} />
 
-      <span className='form-span'>Telefone:</span>
+      <span className='form-span'>
+        Telefone: <span className='asterisk'>*</span>
+      </span>
       <FormAntd.Item>
         <Input 
           name="phone"
@@ -44,7 +50,9 @@ const RegisterStep2 = () => {
       </FormAntd.Item>
       <ErrorMessage error={errors.phone} touched={touched.phone} />
 
-      <span className='form-span'>Endereço:</span>
+      <span className='form-span'>
+        Endereço: <span className='asterisk'>*</span>
+      </span>
       <FormAntd.Item>
         <Input 
           name="address"

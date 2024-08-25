@@ -1,11 +1,18 @@
 .crud-container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    max-width: 550px;
+    margin: 0 auto;
 
     .users-title-and-create-new-user-btn {
         display: flex;
         justify-content: space-around;
         align-items: center;
+    };
+
+    .ant-pagination.css-dev-only-do-not-override-1c0na6j {
+        justify-content: center;
     };
 
     .user-card {

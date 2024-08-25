@@ -36,14 +36,6 @@ const MultiStepForm = () => {
     }
   ];
 
-  const handleNextStep = () => {
-    setActiveStep(activeStep + 1);
-  };
-
-  const handlePreviousStep = () => {
-    setActiveStep(activeStep - 1);
-  };
-
   const disabledStep1 = !values.name || !values.lastname || !values.birthday;
   const disabledStep2 = !values.email || !values.phone || !values.address;
   
@@ -70,7 +62,7 @@ const MultiStepForm = () => {
 
       <div className="steps-action">
         {activeStep > 0 && (
-          <Button onClick={handlePreviousStep}>
+          <Button onClick={() => setActiveStep(activeStep - 1)}>
             Voltar
           </Button>
         )}
@@ -93,7 +85,7 @@ const MultiStepForm = () => {
 
             <Button 
               type="primary" 
-              onClick={handleNextStep}
+              onClick={() => setActiveStep(activeStep + 1)}
               disabled={activeStep === 0 ? disabledStep1 : disabledStep2}
             >
               Próximo

@@ -23,7 +23,11 @@ const RegisterStep1 = () => {
 
   return (
     <Form className='form'>
-      <span className='form-span'>Nome:</span>
+      <h4 className='form-title'>Preencha todos os campos abaixo</h4>
+
+      <span className='form-span'>
+        Nome: <span className='asterisk'>*</span>
+      </span>
       <FormAntd.Item>
         <Input 
           name="name"
@@ -36,7 +40,9 @@ const RegisterStep1 = () => {
       </FormAntd.Item>
       <ErrorMessage error={errors.name} touched={touched.name} />
 
-      <span className='form-span'>Sobrenome:</span>
+      <span className='form-span'>
+        Sobrenome: <span className='asterisk'>*</span>
+      </span>
       <FormAntd.Item>
         <Input 
           name="lastname"
@@ -49,7 +55,9 @@ const RegisterStep1 = () => {
       </FormAntd.Item>
       <ErrorMessage error={errors.lastname} touched={touched.lastname} />
 
-      <span className='form-span'>Data de nascimento:</span>
+      <span className='form-span'>
+        Data de nascimento: <span className='asterisk'>*</span>
+      </span>
       <FormAntd.Item>
         <DatePicker 
           name="birthday"
