@@ -11,3 +11,6 @@ npm install react-router-dom
 npm install formik
 
 npm install yup
+
+Finally, run with:
+npm run dev
