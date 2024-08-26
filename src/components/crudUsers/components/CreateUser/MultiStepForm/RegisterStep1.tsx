@@ -16,9 +16,12 @@ const RegisterStep1 = () => {
   } = useFormikContext <PROPS_FORM> ();
 
   const handleFormatDate = (date: Moment) => {
-    const formattedBirthISO = moment.utc(date).format('YYYY-MM-DD');
-
-    return setFieldValue('birthday', formattedBirthISO);
+    if (date) {
+      const formattedBirthISO = date?.format('YYYY-MM-DD');
+      return setFieldValue('birthday', formattedBirthISO);
+    } else {
+      return setFieldValue('birthday', '');
+    };
   };
 
   return (
@@ -65,7 +68,7 @@ const RegisterStep1 = () => {
           className='input-form'
           placeholder="Selecione sua data de nascimento..."
           onChange={(date) => handleFormatDate(date)}
-          value={values.birthday ? moment(values.birthday) : null}
+          value={values.birthday ? moment.utc(values.birthday) : null}
           disabledDate={(date) => date > moment().endOf('day')} // disabled future dates
         />
       </FormAntd.Item>
