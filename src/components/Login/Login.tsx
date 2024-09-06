@@ -8,15 +8,18 @@ import "./Login.scss";
 import { LoginRequest, loginUrl } from "./Hooks/LoginData";
 import { handleErrorNotification, SetInLocalStorageData } from "../utils";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 export type PROPS_FORM = {
   userName: string;
   password: string;
+  confirmPassword?: string;
 };
 
 const initialValues: PROPS_FORM = {
   userName: "",
   password: "",
+  confirmPassword: "",
 };
 
 const validationSchema = Yup.object().shape({
@@ -25,6 +28,9 @@ const validationSchema = Yup.object().shape({
 });
 const Login = () => {
   const navigate = useNavigate();
+
+  const [showLoginOrCreateNewAccountBtn, setshowLoginOrCreateNewAccountBt] =
+    useState<boolean>(true);
 
   const LoginHandler = async (values: PROPS_FORM) => {
     if (!values) {
@@ -60,7 +66,10 @@ const Login = () => {
           onSubmit={LoginHandler}
           enableReinitialize
         >
-          <LoginForm />
+          <LoginForm
+            showLoginOrCreateNewAccountBtn={showLoginOrCreateNewAccountBtn}
+            setshowLoginOrCreateNewAccountBt={setshowLoginOrCreateNewAccountBt}
+          />
         </Formik>
       </div>
     </div>
