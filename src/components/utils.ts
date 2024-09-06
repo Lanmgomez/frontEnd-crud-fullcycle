@@ -51,3 +51,7 @@ export const MaskPhone = (phone: string) => {
       return phone;
   }
 };
+
+export const SetInLocalStorageData = (username: string) => {
+  localStorage.setItem("username", username);
+};

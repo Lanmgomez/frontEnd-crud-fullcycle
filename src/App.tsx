@@ -1,8 +1,23 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import Header from "./components/header/Header";
 import "./App.scss";
 import Footer from "./components/footer/Footer";
+import { useEffect, useState } from "react";
 function App() {
+  const navigate = useNavigate();
+  const [isLogged, setIsLogged] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (localStorage.length === 0) {
+      setIsLogged(false);
+      navigate("/");
+    }
+
+    if (localStorage.length > 0) {
+      setIsLogged(true);
+      navigate("/home");
+    }
+  }, [isLogged]);
   return (
     <>
       <Header />
