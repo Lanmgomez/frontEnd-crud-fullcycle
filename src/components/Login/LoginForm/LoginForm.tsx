@@ -4,6 +4,10 @@ import { PROPS_FORM } from "../Login";
 import ErrorMessage from "../../crudUsers/components/ErrorMessages/ErrorMessage";
 import { useNavigate } from "react-router-dom";
 
+import "../Login.scss";
+import { createNewAccountUrl, LoginRequest } from "../Hooks/LoginData";
+import { handleErrorNotification, SetInLocalStorageData } from "../../utils";
+
 type PROP = {
   showLoginOrCreateNewAccountBtn: boolean;
   setshowLoginOrCreateNewAccountBt: (_value: boolean) => void;
@@ -23,17 +27,38 @@ const LoginForm = ({
     navigate("/login/create-new-user");
   };
 
-  const CreateNewAccount = (values: PROPS_FORM) => {
+  const CreateNewAccount = async (values: PROPS_FORM) => {
     if (!values) {
       return;
     }
 
-    console.log(values);
+    const { userName, password } = values;
 
-    // submitForm();
+    try {
+      await LoginRequest(`${createNewAccountUrl}`, { userName, password });
+      SetInLocalStorageData(values.userName);
+      navigate("/home");
+    } catch (error) {
+      console.log(error);
+
+      handleErrorNotification("Erro ao criar conta", "Usuário já existe");
+    }
   };
 
-  const disabledBtn = values.password !== values.confirmPassword;
+  const ValidatePassword = (values: PROPS_FORM) => {
+    if (!values) {
+      return;
+    }
+
+    if (values.password !== values.confirmPassword) {
+      return (
+        <p className="different-passwords-msg">As senhas devem ser iguais</p>
+      );
+    }
+  };
+
+  const noUserNameValue = !values.userName;
+  const passwordNotMatch = values.password !== values.confirmPassword;
 
   return (
     <Form className="form">
@@ -76,10 +101,7 @@ const LoginForm = ({
               value={values.confirmPassword}
             />
           </FormAntd.Item>
-          <ErrorMessage
-            error={errors.confirmPassword}
-            touched={touched.confirmPassword}
-          />
+          {ValidatePassword(values)}
         </>
       )}
 
@@ -105,7 +127,7 @@ const LoginForm = ({
             type="primary"
             className="login-btns"
             onClick={() => CreateNewAccount(values)}
-            disabled={disabledBtn}
+            disabled={noUserNameValue ? noUserNameValue : passwordNotMatch}
           >
             Criar Conta
           </Button>

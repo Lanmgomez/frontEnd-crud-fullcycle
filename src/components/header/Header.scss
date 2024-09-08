@@ -12,5 +12,12 @@
     width: 100%;
     display: flex;
     justify-content: space-between;
+
+    .ant-btn {
+      color: white;
+      background-color: black;
+      border-radius: 0;
+      font-weight: 500;
+    }
   }
 }
