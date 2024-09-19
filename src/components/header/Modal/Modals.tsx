@@ -1,30 +1,21 @@
 import { Modal } from "antd";
 import { useNavigate } from "react-router-dom";
+
 type PROP = {
-  id?: string;
+  isModalOpen: boolean;
   title: JSX.Element | string;
   content: string;
-  isModalOpen: boolean;
   setIsModalOpen: (value: boolean) => void;
-  handleConfirmUserDelete?: (_id: string) => Promise<void>;
 };
 
-const Modals = ({
-  id,
-  title,
-  content,
-  isModalOpen,
-  setIsModalOpen,
-  handleConfirmUserDelete,
-}: PROP) => {
+const Modals = ({ isModalOpen, title, content, setIsModalOpen }: PROP) => {
   const navigate = useNavigate();
 
-  const onOkFunction = () => {
-    if (id && handleConfirmUserDelete) {
-      handleConfirmUserDelete(id);
-    } else {
-      navigate("/home");
-    }
+  const handlerLogOut = () => {
+    localStorage.clear();
+    setIsModalOpen(false);
+
+    navigate("/");
   };
 
   return (
@@ -32,8 +23,8 @@ const Modals = ({
       <Modal
         title={title}
         open={isModalOpen}
+        onOk={handlerLogOut}
         onCancel={() => setIsModalOpen(false)}
-        onOk={onOkFunction}
         cancelText="Cancelar"
         okText="Confirmar"
       >

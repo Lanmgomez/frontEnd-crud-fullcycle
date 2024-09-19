@@ -22,7 +22,7 @@ const UserCardInfosById = () => {
     try {
       await DeleteUser(`${usersUrl}/${id}`, { ...showUser });
 
-      navigate("/");
+      navigate("/home");
       handleSuccessNotification(
         "Usuário deletado com sucesso!",
         "O item foi excluído com sucesso."
@@ -57,10 +57,10 @@ const UserCardInfosById = () => {
   return (
     <div className="user-card-infos">
       <div className="user-title">
-        <h1 className="h1-title-user">Usuário: {showUser?.name}</h1>
+        <h1 className="h1-title-user">Dados do usuário</h1>
 
         <div className="buttons">
-          <Button onClick={() => navigate("/")}>Voltar</Button>
+          <Button onClick={() => navigate("/home")}>Voltar</Button>
 
           <Button
             type="primary"

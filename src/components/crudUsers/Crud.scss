@@ -1,59 +1,65 @@
 .crud-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 550px;
+  margin: 0 auto;
+  margin-top: -20px;
+
+  .ant-pagination {
     display: flex;
-    flex-direction: column;
     justify-content: center;
-    max-width: 550px;
-    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
 
-    .users-title-and-create-new-user-btn {
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-    };
+  .users-title-and-create-new-user-btn {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
 
-    .ant-pagination.css-dev-only-do-not-override-1c0na6j {
-        justify-content: center;
-    };
+  .ant-pagination.css-dev-only-do-not-override-1c0na6j {
+    justify-content: center;
+  }
 
-    .user-card {
-        display: flex;
-        justify-content: space-between;
-        padding: 1rem;
-        border: 1px solid rgba(49, 85, 245, 0.425);
-        box-shadow: 0 0 20px rgba(49, 85, 245, 0.3) !important;  
-        border-radius: 0.5rem;
-        margin-bottom: 1rem;
-    
-        .block-of-informations {
-            display: flex;
-            flex-direction: column;
-        };
-    
-        p {
-            display: flex;
-            margin-left: 0;
-            font-weight: bolder;
-        };
-    
-        .labels {
-            display: flex;
-            flex-direction: row;
-    
-            .p-name {
-                width: 150px;
-                margin-left: 15px;
-            };
-    
-            .p-info {
-                color: gray;
-                font-weight: normal;
-            }
-        }
-    
-        .btn-see-more-details {
-            margin-top: 15px;
-            margin-right: 15px;
-        };
-    
-    };
-};
+  .user-card {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    box-shadow: 0 0 20px rgba(49, 85, 245, 0.3) !important;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+
+    .block-of-informations {
+      display: flex;
+      flex-direction: column;
+    }
+
+    p {
+      display: flex;
+      margin-left: 0;
+      font-weight: bolder;
+    }
+
+    .labels {
+      display: flex;
+      flex-direction: row;
+
+      .p-name {
+        width: 150px;
+        margin-left: 15px;
+      }
+
+      .p-info {
+        color: gray;
+        font-weight: normal;
+      }
+    }
+
+    .btn-see-more-details {
+      margin-top: 15px;
+      margin-right: 15px;
+    }
+  }
+}
