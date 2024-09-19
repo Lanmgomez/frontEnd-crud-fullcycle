@@ -42,7 +42,7 @@ function EditCard() {
         "Suas alterações foram salvas"
       );
 
-      navigate("/");
+      navigate("/home");
     } catch (error) {
       handleErrorNotification(
         "Erro ao editar o usuário",

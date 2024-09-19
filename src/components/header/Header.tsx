@@ -1,5 +1,4 @@
 import "./Header.scss";
-import { Button } from "antd";
 import Modals from "./Modal/Modals";
 import { useState } from "react";
 
@@ -16,10 +15,14 @@ const Header = () => {
     if (localStorage.length > 0) {
       return (
         <>
-          <p className="header-text">
-            Bem vindo, {username}
-            <Button onClick={() => setIsModalOpen(true)}>Sair</Button>
-          </p>
+          <div className="header-text">
+            <p>Bem vindo, {username}! 🚀✌️</p>
+
+            <div>
+              <i className="bi bi-badge-8k" />
+              <i className="bi bi-badge-hd" />
+            </div>
+          </div>
         </>
       );
     }

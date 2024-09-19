@@ -1,0 +1,18 @@
+.logs-container {
+  display: flex;
+  flex-direction: column;
+  min-width: 500px;
+  margin: 0 auto;
+  margin-left: 10%;
+
+  .logs-infos {
+    border-bottom: 1px solid;
+  }
+
+  .ant-pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+}

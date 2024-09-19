@@ -1,0 +1,35 @@
+.menu-side-bar-component {
+  display: flex;
+  flex-direction: row;
+  margin-top: 0px;
+  margin-left: -40px;
+
+  .ant-menu {
+    width: 180px;
+    margin-top: -20px;
+    font-weight: bold !important;
+    background-color: #1f1f1f;
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
+
+    .ant-menu-item-selected,
+    .ant-menu-light {
+      background-color: gray !important;
+    }
+
+    .menu-items,
+    .bi-house-door {
+      font-weight: bold;
+      color: #fff;
+
+      ::before {
+        font-weight: bold !important;
+        color: gold;
+      }
+
+      &:hover {
+        background-color: gray !important;
+      }
+    }
+  }
+}

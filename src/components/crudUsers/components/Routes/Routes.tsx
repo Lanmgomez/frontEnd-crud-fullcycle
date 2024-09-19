@@ -4,6 +4,7 @@ import EditCard from "../EditCard/EditCard";
 import CreateUser from "../CreateUser/CreateUser";
 import Login from "../../../Login/Login";
 import CreateNewAccount from "../../../Login/CreateNewAccount/CreateNewAccount";
+import { LogsRegisters } from "../LogsRegisters/LogsRegisters";
 
 export const Routes = [
   {
@@ -25,6 +26,10 @@ export const Routes = [
   {
     path: "/users/:id/edit-user",
     element: <EditCard />,
+  },
+  {
+    path: "/users/logs",
+    element: <LogsRegisters />,
   },
   {
     path: "/users/create-user",

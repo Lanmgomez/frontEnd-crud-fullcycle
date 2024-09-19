@@ -36,6 +36,7 @@ const LoginForm = ({
 
     try {
       await LoginRequest(`${createNewAccountUrl}`, { userName, password });
+
       SetInLocalStorageData(values.userName);
       navigate("/home");
     } catch (error) {

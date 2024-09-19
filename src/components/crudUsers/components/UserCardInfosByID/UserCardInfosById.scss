@@ -1,59 +1,70 @@
 .user-card-infos {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border-radius: 0.5rem;
+  margin-left: 20%;
+  margin-bottom: 20px;
+  box-shadow: 0 0 20px rgba(49, 85, 245, 0.3) !important;
+
+  .user-title {
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    border-radius: 0.5rem;
-    border: 1px solid rgba(49, 85, 245, 0.425);
-    box-shadow: 0 0 20px rgba(49, 85, 245, 0.3) !important; 
+    justify-content: space-between;
+    width: 100%;
 
-    .user-title {
-        display: flex;
-        justify-content: space-between;
-        width: 100%;
+    .buttons {
+      width: 250px;
+      margin-top: 35px;
+      margin-right: 40px;
+      display: flex;
+      justify-content: space-between;
+    }
 
-        .buttons {
-            width: 250px;
-            margin-top: 35px;
-            margin-right: 40px;
-            display: flex;
-            justify-content: space-between;
-        };
+    .delete-btn {
+      background-color: red;
+      color: white;
 
-        .delete-btn {
-            background-color: red;
-            color: white;
+      &:hover {
+        background-color: rgb(255, 147, 147);
+        border-color: rgb(255, 147, 147);
+        color: white;
+      }
+    }
+  }
 
-            &:hover {
-                background-color: rgb(255, 147, 147);
-                border-color: rgb(255, 147, 147);
-                color: white;
-            };
-        };
-    };
+  .h1-title-user,
+  .labels {
+    margin-left: 40px;
+    margin-right: 30px;
+  }
 
-    .h1-title-user, 
-    .labels {
-        margin-left: 40px;
-    };
+  p {
+    display: flex;
+    margin-left: 0;
+    font-weight: bolder;
+  }
 
-    p {
-        display: flex;
-        margin-left: 0;
-        font-weight: bolder;
-    };
+  .labels {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 1rem;
 
-    .labels {
-        display: flex;
-        flex-direction: row;
-        margin-bottom: 1rem;
+    .p-name {
+      width: 200px;
+    }
 
-        .p-name {
-            width: 200px;
-        };
+    .p-info {
+      color: gray;
+      font-weight: normal;
 
-        .p-info {
-            color: gray;
-            font-weight: normal;
-        };
-    };
-};
+      a {
+        text-decoration: none;
+        color: rgba(0, 17, 255, 0.856);
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}

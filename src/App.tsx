@@ -1,8 +1,9 @@
-import { Outlet, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Header from "./components/header/Header";
 import "./App.scss";
 import Footer from "./components/footer/Footer";
 import { useEffect, useState } from "react";
+import MenuSideBar from "./components/Menu/MenuSideBar";
 function App() {
   const navigate = useNavigate();
   const [isLogged, setIsLogged] = useState<boolean>(false);
@@ -21,7 +22,7 @@ function App() {
   return (
     <>
       <Header />
-      <Outlet />
+      <MenuSideBar />
       <Footer />
     </>
   );
