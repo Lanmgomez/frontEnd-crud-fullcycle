@@ -9,6 +9,7 @@ import { LoginRequest, loginUrl } from "./Hooks/LoginData";
 import { handleErrorNotification, SetInLocalStorageData } from "../utils";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
+import Container from "../crudUsers/components/Container/Container";
 
 export type PROPS_FORM = {
   userName: string;
@@ -53,26 +54,30 @@ const Login = () => {
   };
 
   return (
-    <div className="login-container">
-      <div className="login-card">
-        <hgroup>
-          <h1>Login</h1>
-          <h2>Entre ou cadastre-se</h2>
-        </hgroup>
+    <Container>
+      <div className="login-container">
+        <div className="login-card">
+          <hgroup>
+            <h1>Login</h1>
+            <h2>Entre ou cadastre-se</h2>
+          </hgroup>
 
-        <Formik
-          initialValues={initialValues}
-          validationSchema={validationSchema}
-          onSubmit={LoginHandler}
-          enableReinitialize
-        >
-          <LoginForm
-            showLoginOrCreateNewAccountBtn={showLoginOrCreateNewAccountBtn}
-            setshowLoginOrCreateNewAccountBt={setshowLoginOrCreateNewAccountBt}
-          />
-        </Formik>
+          <Formik
+            initialValues={initialValues}
+            validationSchema={validationSchema}
+            onSubmit={LoginHandler}
+            enableReinitialize
+          >
+            <LoginForm
+              showLoginOrCreateNewAccountBtn={showLoginOrCreateNewAccountBtn}
+              setshowLoginOrCreateNewAccountBt={
+                setshowLoginOrCreateNewAccountBt
+              }
+            />
+          </Formik>
+        </div>
       </div>
-    </div>
+    </Container>
   );
 };
 

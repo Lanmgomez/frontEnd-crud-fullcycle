@@ -6,6 +6,10 @@
   margin: 0 auto;
   margin-top: -20px;
 
+  .users-crud-container {
+    min-height: 80vh;
+  }
+
   .ant-pagination {
     display: flex;
     justify-content: center;
@@ -27,8 +31,7 @@
     display: flex;
     justify-content: space-between;
     padding: 1rem;
-    box-shadow: 0 0 20px rgba(49, 85, 245, 0.3) !important;
-    border-radius: 0.5rem;
+    box-shadow: 0 0 15px gray !important;
     margin-bottom: 1rem;
 
     .block-of-informations {

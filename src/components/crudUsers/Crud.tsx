@@ -1,49 +1,51 @@
-import { useState, useEffect } from 'react';
-import { usersUrl, GetUsersData } from './hooks/CrudUsersData';
+import { useState, useEffect } from "react";
+import { usersUrl, GetUsersData } from "./hooks/CrudUsersData";
 
-import './Crud.scss';
-import UserCard from './components/UserCard';
-import EmptyUsers from './components/EmptyUsers/EmptyUsers';
-import { Pagination } from 'antd';
+import "./Crud.scss";
+import UserCard from "./components/UserCard";
+import EmptyUsers from "./components/EmptyUsers/EmptyUsers";
+import { Pagination } from "antd";
+import Container from "./components/Container/Container";
 
 const Crud = () => {
-
   const [showUsers, setShowUsers] = useState([]);
   const [page, setPage] = useState(1);
-  
-  useEffect(() => {
-    const fetchData = async () => {
-      const data = await GetUsersData(usersUrl);
-
-      if (data) {
-        setShowUsers(data);
-        return;
-      }
-    }; 
-
-    fetchData();
-  }, []);
-
-  if (showUsers.length === 0) {
-    return <EmptyUsers />;
-  };
 
   const itensPerPage = 3;
   const startIndex = (page - 1) * itensPerPage;
   const endIndex = startIndex + itensPerPage;
-  const paginatedUsers = showUsers.slice(startIndex, endIndex);
+  const paginatedUsersCrud = showUsers.slice(startIndex, endIndex);
+
+  const fetchDataUsersCrud = async () => {
+    const data = await GetUsersData(usersUrl);
+
+    if (data) {
+      setShowUsers(data);
+      return;
+    }
+  };
+
+  useEffect(() => {
+    fetchDataUsersCrud();
+  }, []);
+
+  if (showUsers.length === 0) {
+    return <EmptyUsers />;
+  }
 
   return (
-    <div className='crud-container'>
-      <UserCard showUsers={paginatedUsers} />
-        <Pagination 
-          pageSize={3} 
+    <Container>
+      <div className="crud-container">
+        <UserCard showUsersCrud={paginatedUsersCrud} />
+        <Pagination
+          pageSize={3}
           onChange={(page) => setPage(page)}
-          current={page} 
-          total={showUsers.length} 
-        />      
-    </div>
-  )
+          current={page}
+          total={showUsers.length}
+        />
+      </div>
+    </Container>
+  );
 };
 
 export default Crud;

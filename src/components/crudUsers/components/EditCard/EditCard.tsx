@@ -7,6 +7,7 @@ import {
   handleSuccessNotification,
 } from "../../../utils";
 import { UpdateUsersData, usersUrl } from "../../hooks/CrudUsersData";
+import Container from "../Container/Container";
 export type PROPS_FORM = {
   name: string;
   lastname: string;
@@ -53,16 +54,18 @@ function EditCard() {
   };
 
   return (
-    <div className="edit-card">
-      <Formik
-        initialValues={initialValues}
-        validationSchema={validationSchema}
-        onSubmit={handleSubmit}
-        enableReinitialize
-      >
-        <FormUser />
-      </Formik>
-    </div>
+    <Container>
+      <div className="edit-card">
+        <Formik
+          initialValues={initialValues}
+          validationSchema={validationSchema}
+          onSubmit={handleSubmit}
+          enableReinitialize
+        >
+          <FormUser />
+        </Formik>
+      </div>
+    </Container>
   );
 }
 
