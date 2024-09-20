@@ -31,6 +31,14 @@ const MenuSideBar = () => {
     },
     {
       key: "3",
+      label: "Configurações",
+      type: "item",
+      icon: <i className="bi bi-house-door" />,
+      className: "menu-items",
+      onClick: () => navigate("/settings"),
+    },
+    {
+      key: "4",
       label: "Sair",
       type: "item",
       icon: <i className="bi bi-arrow-counterclockwise" />,

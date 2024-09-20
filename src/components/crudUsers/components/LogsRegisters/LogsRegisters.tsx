@@ -5,6 +5,7 @@ import { GetUsersData, loginLogsUrl } from "../../hooks/CrudUsersData";
 import "./LogsRegisters.scss";
 import { formatDateTime } from "../../../utils";
 import { Pagination } from "antd";
+import Container from "../Container/Container";
 
 type PROP = {
   id: number;
@@ -49,34 +50,50 @@ export const LogsRegisters = () => {
   const paginatedLogs = sortedByRecentLogs?.slice(startIndex, endIndex);
 
   return (
-    <div className="logs-container">
-      <h1>Registro de Logs</h1>
+    <Container>
+      <div className="logs-container">
+        <h1>Registro de Logs</h1>
 
-      {paginatedLogs?.map((log) => (
-        <div key={log.id} className="logs-infos">
-          <p>
-            <b>Usuário:</b> {username}
-          </p>
-          <p>
-            <b>User Agent:</b> {log.userAgent}
-          </p>
-          <p>
-            <b>Login:</b> {formatDateTime(log.loginTime)}
-          </p>
-          <p>
-            <b>Status:</b> {log.status}
-          </p>
-          <p>
-            <b>IP:</b> {log.ipAddress}
-          </p>
-        </div>
-      ))}
-      <Pagination
-        pageSize={itensPerPage}
-        onChange={(page) => setPage(page)}
-        current={page}
-        total={logsRegisters.length}
-      />
-    </div>
+        {paginatedLogs?.map((log) => (
+          <div key={log.id} className="logs-infos">
+            <div className="logs-infos-div">
+              <b>Usuário:</b>
+              {username}
+            </div>
+
+            <div className="logs-infos-div">
+              <b>User Agent:</b>
+              {log.userAgent}
+            </div>
+
+            <div className="logs-infos-div">
+              <b>Login:</b>
+              {formatDateTime(log.loginTime)}
+            </div>
+
+            <div className="status">
+              <b>Status:</b>
+
+              <b className="status-text">
+                {log.status.toLowerCase()}
+                <i className="bi bi-check-circle" />
+              </b>
+            </div>
+
+            <div className="logs-infos-div">
+              <b>IP:</b>
+              {log.ipAddress}
+            </div>
+          </div>
+        ))}
+
+        <Pagination
+          pageSize={itensPerPage}
+          onChange={(page) => setPage(page)}
+          current={page}
+          total={logsRegisters.length}
+        />
+      </div>
+    </Container>
   );
 };

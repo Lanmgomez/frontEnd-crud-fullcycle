@@ -5,6 +5,7 @@ import CreateUser from "../CreateUser/CreateUser";
 import Login from "../../../Login/Login";
 import CreateNewAccount from "../../../Login/CreateNewAccount/CreateNewAccount";
 import { LogsRegisters } from "../LogsRegisters/LogsRegisters";
+import Container from "../Container/Container";
 
 export const Routes = [
   {
@@ -34,5 +35,9 @@ export const Routes = [
   {
     path: "/users/create-user",
     element: <CreateUser />,
+  },
+  {
+    path: "/settings",
+    element: <Container children={undefined} />,
   },
 ];

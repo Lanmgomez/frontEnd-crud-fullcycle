@@ -6,6 +6,7 @@ import { formatDate, handleSuccessNotification, PROP } from "../../../utils";
 import "./UserCardInfosById.scss";
 import { Button } from "antd";
 import Modals from "../Modals/Modals";
+import Container from "../Container/Container";
 
 const UserCardInfosById = () => {
   const { id } = useParams<{ id: string }>();
@@ -55,79 +56,86 @@ const UserCardInfosById = () => {
   };
 
   return (
-    <div className="user-card-infos">
-      <div className="user-title">
-        <h1 className="h1-title-user">Dados do usuário</h1>
+    <Container>
+      <div className="user-card-infos">
+        <div className="user-title">
+          <h1 className="h1-title-user">Dados do usuário</h1>
 
-        <div className="buttons">
-          <Button onClick={() => navigate("/home")}>Voltar</Button>
+          <div className="buttons">
+            <Button onClick={() => navigate("/home")}>
+              <i className="bi bi-arrow-counterclockwise" />
+              Voltar
+            </Button>
 
-          <Button
-            type="primary"
-            onClick={() => navigate(`/users/${id}/edit-user`)}
-          >
-            Editar
-          </Button>
+            <Button
+              type="primary"
+              onClick={() => navigate(`/users/${id}/edit-user`)}
+            >
+              <i className="bi bi-pencil-square" />
+              Editar
+            </Button>
 
-          <Button className="delete-btn" onClick={() => setIsModalOpen(true)}>
-            Excluir
-          </Button>
+            <Button className="delete-btn" onClick={() => setIsModalOpen(true)}>
+              <i className="bi bi-trash3-fill" />
+              Excluir
+            </Button>
+          </div>
         </div>
-      </div>
 
-      <Modals
-        id={String(id)}
-        title={modalTitle("Tem certeza que deseja excluir este item ?")}
-        content={"Se excluir este item, essa ação não poderá ser desfeita!"}
-        isModalOpen={isModalOpen}
-        setIsModalOpen={setIsModalOpen}
-        handleConfirmUserDelete={handleConfirmUserDelete}
-      />
+        <Modals
+          id={String(id)}
+          title={modalTitle("Tem certeza que deseja excluir este item ?")}
+          content={"Se excluir este item, essa ação não poderá ser desfeita!"}
+          isModalOpen={isModalOpen}
+          setIsModalOpen={setIsModalOpen}
+          handleConfirmUserDelete={handleConfirmUserDelete}
+        />
 
-      <div className="labels">
-        <p className="p-name">Nome: </p>
-        <p className="p-info">{showUser?.name}</p>
-      </div>
-
-      <div className="labels">
-        <p className="p-name">Sobrenome: </p>
-        <p className="p-info">{showUser?.lastname}</p>
-      </div>
-
-      <div className="labels">
-        <p className="p-name">Email: </p>
-        <p className="p-info">{showUser?.email}</p>
-      </div>
-
-      <div className="block-of-informations">
         <div className="labels">
-          <p className="p-name">Endereço: </p>
-          <p className="p-info">{showUser?.address}</p>
+          <p className="p-name">Nome: </p>
+          <p className="p-info">{showUser?.name}</p>
         </div>
 
         <div className="labels">
-          <p className="p-name">Data de nascimento: </p>
-          <p className="p-info">{formatDate(showUser?.birthday)}</p>
+          <p className="p-name">Sobrenome: </p>
+          <p className="p-info">{showUser?.lastname}</p>
         </div>
 
         <div className="labels">
-          <p className="p-name">Telefone: </p>
-          <p className="p-info">{showUser?.phone}</p>
+          <p className="p-name">Email: </p>
+          <p className="p-info">{showUser?.email}</p>
+        </div>
+
+        <div className="block-of-informations">
+          <div className="labels">
+            <p className="p-name">Endereço: </p>
+            <p className="p-info">{showUser?.address}</p>
+          </div>
+
+          <div className="labels">
+            <p className="p-name">Data de nascimento: </p>
+            <p className="p-info">{formatDate(showUser?.birthday)}</p>
+          </div>
+
+          <div className="labels">
+            <p className="p-name">Telefone: </p>
+            <p className="p-info">{showUser?.phone}</p>
+          </div>
+        </div>
+
+        <div className="block-of-informations">
+          <div className="labels">
+            <p className="p-name">Criado em: </p>
+            <p className="p-info">{formatDate(showUser?.createdAt)}</p>
+          </div>
+
+          <div className="labels">
+            <p className="p-name">Atualizado em: </p>
+            <p className="p-info">{formatDate(showUser?.updatedAt)}</p>
+          </div>
         </div>
       </div>
-
-      <div className="block-of-informations">
-        <div className="labels">
-          <p className="p-name">Criado em: </p>
-          <p className="p-info">{formatDate(showUser?.createdAt)}</p>
-        </div>
-
-        <div className="labels">
-          <p className="p-name">Atualizado em: </p>
-          <p className="p-info">{formatDate(showUser?.updatedAt)}</p>
-        </div>
-      </div>
-    </div>
+    </Container>
   );
 };
 

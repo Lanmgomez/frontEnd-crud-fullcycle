@@ -2,10 +2,8 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  border-radius: 0.5rem;
-  margin-left: 20%;
+  margin-left: 10%;
   margin-bottom: 20px;
-  box-shadow: 0 0 20px rgba(49, 85, 245, 0.3) !important;
 
   .user-title {
     display: flex;
@@ -18,10 +16,15 @@
       margin-right: 40px;
       display: flex;
       justify-content: space-between;
+
+      .ant-btn,
+      .ant-btn-default {
+        margin-right: 10px !important;
+      }
     }
 
     .delete-btn {
-      background-color: red;
+      background-color: #dd0f0f;
       color: white;
 
       &:hover {
@@ -47,7 +50,6 @@
   .labels {
     display: flex;
     flex-direction: row;
-    margin-bottom: 1rem;
 
     .p-name {
       width: 200px;
@@ -56,15 +58,6 @@
     .p-info {
       color: gray;
       font-weight: normal;
-
-      a {
-        text-decoration: none;
-        color: rgba(0, 17, 255, 0.856);
-
-        &:hover {
-          text-decoration: underline;
-        }
-      }
     }
   }
 }
