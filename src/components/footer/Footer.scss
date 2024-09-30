@@ -1,11 +1,71 @@
-.footer {
+@import "../styles/_variables.scss";
+
+.footer-upside {
   display: flex;
-  flex-direction: column;
-  background-color: #181818;
+  background-color: $secondary-color;
   margin: -40px;
   margin-top: 0px;
-  color: white;
-  justify-content: center;
+  border-top: 1px solid $tertiary-color;
+  justify-content: space-around;
   align-items: center;
-  text-align: center;
+
+  .footer-div {
+    display: flex;
+    flex-direction: column;
+
+    a {
+      margin-bottom: 10px;
+      color: $link-color;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    .bi-chat-dots,
+    .bi-envelope-at,
+    .bi-telephone-forward,
+    .bi-facebook,
+    .bi-youtube,
+    .bi-instagram,
+    .bi-linkedin {
+      margin-right: 5px;
+    }
+  }
+}
+
+.footer-mainside {
+  display: flex;
+  background-color: $secondary-color;
+  margin: -40px;
+  margin-top: 40px;
+  margin-left: 5px;
+}
+
+.footer-downside {
+  display: flex;
+  flex-direction: column;
+  background-color: $primary-color;
+  margin: -40px;
+  margin-top: 40px;
+  color: $quaternary-color;
+
+  .footer-div-downside {
+    display: flex;
+    padding: 10px;
+    justify-content: center;
+
+    div {
+      padding: 10px;
+      font-weight: bold;
+    }
+  }
+
+  .footer-div-downside-lorem {
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+    margin-top: -20px;
+  }
 }

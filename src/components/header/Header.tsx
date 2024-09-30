@@ -14,16 +14,9 @@ const Header = () => {
 
     if (localStorage.length > 0) {
       return (
-        <>
-          <div className="header-text">
-            <p>Bem vindo, {username}! 🚀✌️</p>
-
-            <div>
-              <i className="bi bi-badge-8k" />
-              <i className="bi bi-badge-hd" />
-            </div>
-          </div>
-        </>
+        <div className="header-text">
+          <p>Bem vindo, {username}! 🚀✌️</p>
+        </div>
       );
     }
   };

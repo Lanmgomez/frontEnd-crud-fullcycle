@@ -1,7 +1,6 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useNavigate } from "react-router-dom";
-import Header from "./components/header/Header";
 import "./App.scss";
-import Footer from "./components/footer/Footer";
 import { useEffect, useState } from "react";
 import MenuSideBar from "./components/Menu/MenuSideBar";
 function App() {
@@ -19,13 +18,8 @@ function App() {
       navigate("/home");
     }
   }, [isLogged]);
-  return (
-    <>
-      <Header />
-      <MenuSideBar />
-      <Footer />
-    </>
-  );
+
+  return <MenuSideBar />;
 }
 
 export default App;

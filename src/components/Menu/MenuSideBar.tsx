@@ -2,6 +2,8 @@ import { Menu, MenuProps } from "antd";
 import { Outlet, useNavigate } from "react-router-dom";
 
 import "./MenuSideBar.scss";
+import Header from "../header/Header";
+import Footer from "../footer/Footer";
 
 type MenuItem = Required<MenuProps>["items"][number];
 const MenuSideBar = () => {
@@ -53,10 +55,16 @@ const MenuSideBar = () => {
 
   if (localStorage.length > 0) {
     return (
-      <div className="menu-side-bar-component">
-        <Menu items={menuLabels}></Menu>
-        <Outlet />
-      </div>
+      <>
+        <Header />
+
+        <div className="menu-side-bar-component">
+          <Menu items={menuLabels}></Menu>
+          <Outlet />
+        </div>
+
+        <Footer />
+      </>
     );
   }
 };
