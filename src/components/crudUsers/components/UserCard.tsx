@@ -16,8 +16,7 @@ const UserCard = ({ showUsersCrud }: PROP_COMPONENT) => {
 
   return (
     <div className="users-crud-container">
-      <div className="users-title-and-create-new-user-btn">
-        <h1>Usuários</h1>
+      <div className="create-new-user-btn">
         <Button type="primary" onClick={() => navigate("/users/create-user")}>
           Adicionar Usuário
         </Button>
