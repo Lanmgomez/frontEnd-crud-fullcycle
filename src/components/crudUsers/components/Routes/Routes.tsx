@@ -6,6 +6,7 @@ import Login from "../../../Login/Login";
 import CreateNewAccount from "../../../Login/CreateNewAccount/CreateNewAccount";
 import { LogsRegisters } from "../LogsRegisters/LogsRegisters";
 import Container from "../Container/Container";
+import Payments from "../Payments/Payments";
 
 export const Routes = [
   {
@@ -39,5 +40,9 @@ export const Routes = [
   {
     path: "/settings",
     element: <Container children={undefined} />,
+  },
+  {
+    path: "/users/payments",
+    element: <Payments />,
   },
 ];

@@ -25,6 +25,14 @@ const MenuSideBar = () => {
     },
     {
       key: "2",
+      label: "Pagamentos",
+      type: "item",
+      icon: <i className="bi bi-currency-dollar" />,
+      className: "menu-items",
+      onClick: () => navigate("/users/payments"),
+    },
+    {
+      key: "3",
       label: "Logs",
       type: "item",
       icon: <i className="bi bi-clock-history" />,
@@ -32,7 +40,7 @@ const MenuSideBar = () => {
       onClick: () => navigate("/users/logs"),
     },
     {
-      key: "3",
+      key: "4",
       label: "Configurações",
       type: "item",
       icon: <i className="bi bi-house-door" />,
@@ -40,7 +48,7 @@ const MenuSideBar = () => {
       onClick: () => navigate("/settings"),
     },
     {
-      key: "4",
+      key: "5",
       label: "Sair",
       type: "item",
       icon: <i className="bi bi-arrow-counterclockwise" />,
