@@ -58,7 +58,8 @@
         margin-right: 5px;
       }
 
-      .input-form {
+      .input-form,
+      .ant-select-selector {
         min-width: 220px;
         border-radius: 0px;
       }
@@ -88,6 +89,25 @@
     .ant-pagination-item-link,
     .ant-pagination-item a {
       display: none;
+    }
+  }
+
+  .cep-input {
+    display: flex;
+    flex-direction: column;
+    padding: 0px 20px 0px;
+
+    .asterisk {
+      color: red;
+    }
+
+    .input-form {
+      border-radius: 0px;
+    }
+
+    .ant-select-selector {
+      min-width: 220px;
+      border-radius: 0px;
     }
   }
 }

@@ -1,13 +1,18 @@
 import { Button, Steps } from "antd";
-import { Form } from "formik";
+import { Form, useFormikContext } from "formik";
 import { useState } from "react";
 import PaymentStep1 from "./PaymentStep1";
+import PaymentStep2 from "./PaymentStep2";
+import PaymentStep3 from "./PaymentStep3";
+import { PROPS_FORM } from "../utils";
 
 import "../Payments.scss";
 
 const { Step } = Steps;
 
 const MultiStepForm = () => {
+  const { values, submitForm } = useFormikContext<PROPS_FORM>();
+
   const [activeStep, setActiveStep] = useState<number>(0);
 
   const steps = [
@@ -17,13 +22,31 @@ const MultiStepForm = () => {
     },
     {
       title: "Endereço",
-      content: <p>Teste 2</p>,
+      content: <PaymentStep2 />,
     },
     {
       title: "Pagamento",
-      content: <p>Teste 3</p>,
+      content: <PaymentStep3 />,
     },
   ];
+
+  const disabledStep1 =
+    !values.fullName || !values.email || !values.cpfOrCnpj || !values.phone;
+
+  const disabledStep2 =
+    !values.cep ||
+    !values.address ||
+    !values.addressNumber ||
+    !values.neighborhood ||
+    !values.city ||
+    !values.uf;
+
+  const disabledIfNoPaymentData =
+    !values.creditCardNumber ||
+    !values.creditCardName ||
+    !values.expirationCard ||
+    !values.cvv ||
+    !values.paymentFormInstallment;
 
   return (
     <Form className="payment-form">
@@ -55,19 +78,10 @@ const MultiStepForm = () => {
                 Voltar
               </Button>
 
-              {/* <Modals
-              title={modalTitle("Você não salvou as informações.")}
-              content={"Tem certeza que deseja sair sem salvar?"}
-              isModalOpen={isModalOpen}
-              setIsModalOpen={setIsModalOpen}
-            /> */}
-
               <Button
                 type="primary"
                 onClick={() => setActiveStep(activeStep + 1)}
-                //   disabled={
-                //     activeStep === 0 ? disabledStep1 : disabledStep2
-                //   }
+                disabled={activeStep === 0 ? disabledStep1 : disabledStep2}
               >
                 Próximo
               </Button>
@@ -75,13 +89,23 @@ const MultiStepForm = () => {
           )}
 
           {activeStep === steps.length - 1 && (
-            <Button
-              type="primary"
-              style={{ margin: "0 0 0 8px" }}
-              // onClick={submitForm}
-            >
-              Salvar
-            </Button>
+            <div className="steps-action-btns">
+              <Button
+                style={{ margin: "20px 0 0 8px" }}
+                onClick={() => setActiveStep(activeStep - 1)}
+              >
+                Voltar
+              </Button>
+
+              <Button
+                type="primary"
+                style={{ margin: "20px 0 0 8px" }}
+                onClick={submitForm}
+                disabled={disabledIfNoPaymentData}
+              >
+                Salvar
+              </Button>
+            </div>
           )}
         </div>
       </div>

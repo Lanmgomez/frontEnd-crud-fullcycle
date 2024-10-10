@@ -1,8 +1,14 @@
 import { Form as FormAntd, Input } from "antd";
 
+import { useFormikContext } from "formik";
+import { PROPS_FORM } from "../utils";
+import { MaskPhone, inputMask } from "../../../../utils";
+
 import "../Payments.scss";
 
 const PaymentStep1 = () => {
+  const { values, setFieldValue } = useFormikContext<PROPS_FORM>();
+
   return (
     <>
       <div className="form-inputs-father">
@@ -12,12 +18,12 @@ const PaymentStep1 = () => {
           </span>
           <FormAntd.Item>
             <Input
-              name="name"
+              name="fullName"
               className="input-form"
               placeholder="Digite seu nome..."
               type="text"
-              //   onChange={(e) => setFieldValue("name", e.target.value)}
-              //   value={values.name}
+              onChange={(e) => setFieldValue("fullName", e.target.value)}
+              value={values.fullName}
             />
           </FormAntd.Item>
         </div>
@@ -32,8 +38,8 @@ const PaymentStep1 = () => {
               className="input-form"
               placeholder="Digite seu email..."
               type="text"
-              //   onChange={(e) => setFieldValue("name", e.target.value)}
-              //   value={values.name}
+              onChange={(e) => setFieldValue("email", e.target.value)}
+              value={values.email}
             />
           </FormAntd.Item>
         </div>
@@ -46,12 +52,13 @@ const PaymentStep1 = () => {
           </span>
           <FormAntd.Item>
             <Input
-              name="cpf-or-cnpj"
+              name="cpfOrCnpj"
               className="input-form"
               placeholder="Digite seu CPF ou CNPJ..."
               type="text"
-              //   onChange={(e) => setFieldValue("name", e.target.value)}
-              //   value={values.name}
+              maxLength={18}
+              onChange={(e) => setFieldValue("cpfOrCnpj", e.target.value)}
+              value={inputMask(values.cpfOrCnpj)}
             />
           </FormAntd.Item>
         </div>
@@ -66,8 +73,9 @@ const PaymentStep1 = () => {
               className="input-form"
               placeholder="Digite seu número de contato..."
               type="text"
-              //   onChange={(e) => setFieldValue("name", e.target.value)}
-              //   value={values.name}
+              maxLength={15}
+              onChange={(e) => setFieldValue("phone", e.target.value)}
+              value={MaskPhone(values.phone)}
             />
           </FormAntd.Item>
         </div>
