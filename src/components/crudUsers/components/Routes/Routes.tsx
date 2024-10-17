@@ -7,6 +7,7 @@ import CreateNewAccount from "../../../Login/CreateNewAccount/CreateNewAccount";
 import { LogsRegisters } from "../LogsRegisters/LogsRegisters";
 import Container from "../Container/Container";
 import Payments from "../Payments/Payments";
+import SuccessfulBuy from "../Payments/sucessfulBuy/SuccessfulBuy";
 
 export const Routes = [
   {
@@ -44,5 +45,10 @@ export const Routes = [
   {
     path: "/users/payments",
     element: <Payments />,
+  },
+  // TODO : Finish payments
+  {
+    path: "/users/successul-payment",
+    element: <SuccessfulBuy />,
   },
 ];

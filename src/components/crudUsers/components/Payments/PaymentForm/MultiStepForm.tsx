@@ -4,7 +4,7 @@ import { useState } from "react";
 import PaymentStep1 from "./PaymentStep1";
 import PaymentStep2 from "./PaymentStep2";
 import PaymentStep3 from "./PaymentStep3";
-import { PROPS_FORM } from "../utils";
+import { PROPS_FORM } from "../Payments";
 
 import "../Payments.scss";
 

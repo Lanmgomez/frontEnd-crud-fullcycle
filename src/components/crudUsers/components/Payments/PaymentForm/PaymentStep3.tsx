@@ -1,20 +1,50 @@
 import { Form as FormAntd, Input, Select } from "antd";
+import { PROPS_FORM } from "../Payments";
+import { useFormikContext } from "formik";
 
 import "../Payments.scss";
-import { payment_method_list, PROPS_FORM } from "../utils";
-import { useFormikContext } from "formik";
 
 const { Option } = Select;
 
 const PaymentStep3 = () => {
   const { values, setFieldValue } = useFormikContext<PROPS_FORM>();
 
-  const creditCardInputMask = (value: string) => {
-    let mask = value.replace(/\D/g, "");
-    mask = mask.replace(/(\d{4})(\d{4})(\d{4})(\d{0,4})/, "$1 $2 $3 $4");
+  const payment_method_list = [
+    { id: 1, value: "1x R$ 100,00" },
+    { id: 2, value: "2x R$ 50,00" },
+    { id: 3, value: "3x R$ 33,33" },
+    { id: 4, value: "4x R$ 25,00" },
+    { id: 5, value: "5x R$ 20,00" },
+    { id: 6, value: "6x R$ 16,66" },
+    { id: 7, value: "7x R$ 13,33" },
+    { id: 8, value: "8x R$ 12,50" },
+    { id: 9, value: "9x R$ 11,11" },
+    { id: 10, value: "10x R$ 10,00" },
+    { id: 11, value: "11x R$ 9,09" },
+    { id: 12, value: "12x R$ 8,33" },
+  ];
 
-    const maskValue = mask.trim();
+  const creditCardInputMask = (value: string) => {
+    if (!value) {
+      return "";
+    }
+
+    const mask = value.replace(/\D/g, "");
+
+    const maskValue = mask
+      .replace(/(\d{4})(\d{4})(\d{4})(\d{0,4})/, "$1 $2 $3 $4")
+      .trim();
+
     return maskValue;
+  };
+
+  const creditCardName = (value: string) => {
+    if (!value) {
+      return "";
+    }
+
+    const cardName = value.toUpperCase();
+    return cardName;
   };
 
   return (
@@ -47,7 +77,7 @@ const PaymentStep3 = () => {
             placeholder="Digite seu nome..."
             type="text"
             onChange={(e) => setFieldValue("creditCardName", e.target.value)}
-            value={values.creditCardName}
+            value={creditCardName(values.creditCardName)}
           />
         </FormAntd.Item>
       </div>
