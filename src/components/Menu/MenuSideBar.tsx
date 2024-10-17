@@ -55,6 +55,15 @@ const MenuSideBar = () => {
       className: "menu-items",
       onClick: () => handleLogout(),
     },
+    // TODO - Apagar após testar todo o fluxo
+    // {
+    //   key: "10",
+    //   label: "Teste",
+    //   type: "item",
+    //   icon: <i className="bi bi-arrow-counterclockwise" />,
+    //   className: "menu-items",
+    //   onClick: () => navigate("/users/successul-payment"),
+    // },
   ];
 
   if (localStorage.length === 0) {

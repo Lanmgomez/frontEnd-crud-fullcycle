@@ -1,20 +1,58 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useEffect, useState } from "react";
 import { Form as FormAntd, Input, Select } from "antd";
-import { PROPS_FORM, uf_list } from "../utils";
+import { PROPS_FORM } from "../Payments";
 import { useFormikContext } from "formik";
+import { GetData, uf_list_url, via_cep_url } from "../hooks/PaymentData";
 
 import "../Payments.scss";
 
 const { Option } = Select;
+
+type PROP_STATES_LIST = {
+  id: number;
+  state: string;
+  uf: string;
+};
+
 const PaymentStep2 = () => {
-  const { values, setFieldValue } = useFormikContext<PROPS_FORM>();
+  const { values, setFieldValue, setValues } = useFormikContext<PROPS_FORM>();
 
-  const cepInputMask = (value: string) => {
-    let mask = value.replace(/\D/g, "");
-    mask = mask.replace(/(\d{5})(\d{3})/, "$1-$2");
+  const [ufStates, setUfStates] = useState<PROP_STATES_LIST[]>();
 
-    const maskValue = mask.trim();
-    return maskValue;
+  const addressAutoComplete = async (value: string) => {
+    const data = await GetData(`${via_cep_url}/${value}/json/`);
+
+    setValues((prevValues) => ({
+      ...prevValues,
+      address: data.logradouro,
+      complement: data.complemento,
+      neighborhood: data.bairro,
+      city: data.localidade,
+      uf: data.uf,
+      cep: data.cep,
+    }));
   };
+
+  const getUfList = async () => {
+    try {
+      const ufData = await GetData(uf_list_url);
+
+      setUfStates(ufData);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getUfList();
+  }, []);
+
+  useEffect(() => {
+    if (values.cep.length === 8) {
+      addressAutoComplete(values.cep);
+    }
+  }, [values.cep]);
 
   return (
     <>
@@ -30,7 +68,7 @@ const PaymentStep2 = () => {
             type="text"
             maxLength={9}
             onChange={(e) => setFieldValue("cep", e.target.value)}
-            value={cepInputMask(values.cep)}
+            value={values.cep}
           />
         </FormAntd.Item>
       </div>
@@ -127,9 +165,13 @@ const PaymentStep2 = () => {
             onChange={(value) => setFieldValue("uf", value)}
             value={values.uf}
           >
-            {uf_list.map((uf) => (
-              <Option key={uf.id} value={uf.name}>
-                {uf.name}
+            <Option value="" disabled>
+              Selecione uma UF
+            </Option>
+
+            {ufStates?.map((uf: PROP_STATES_LIST) => (
+              <Option key={uf.id} value={uf.uf}>
+                {uf.state} - {uf.uf}
               </Option>
             ))}
           </Select>

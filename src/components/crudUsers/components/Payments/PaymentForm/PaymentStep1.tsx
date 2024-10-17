@@ -1,13 +1,21 @@
 import { Form as FormAntd, Input } from "antd";
-
 import { useFormikContext } from "formik";
-import { PROPS_FORM } from "../utils";
+import { PROPS_FORM } from "../Payments";
 import { MaskPhone, inputMask } from "../../../../utils";
 
 import "../Payments.scss";
 
 const PaymentStep1 = () => {
   const { values, setFieldValue } = useFormikContext<PROPS_FORM>();
+
+  const fullNameFormat = (value: string) => {
+    if (!value) {
+      return "";
+    }
+
+    const name = value.toLowerCase();
+    return name;
+  };
 
   return (
     <>
@@ -23,7 +31,7 @@ const PaymentStep1 = () => {
               placeholder="Digite seu nome..."
               type="text"
               onChange={(e) => setFieldValue("fullName", e.target.value)}
-              value={values.fullName}
+              value={fullNameFormat(values.fullName)}
             />
           </FormAntd.Item>
         </div>

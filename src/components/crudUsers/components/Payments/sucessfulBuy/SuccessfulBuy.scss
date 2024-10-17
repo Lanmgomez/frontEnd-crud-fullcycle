@@ -1,0 +1,57 @@
+.successful-container {
+  width: 50%;
+  margin: 50px auto;
+
+  .payment-check {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background-color: green;
+
+    .bi-check-circle::before {
+      color: white;
+      font-size: 100px;
+      margin-top: 20px;
+    }
+
+    p {
+      color: white;
+      font-weight: bold;
+    }
+  }
+
+  .summary-div {
+    display: flex;
+    flex-direction: column;
+
+    .labels {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .p-name {
+      width: 200px !important; // alinha com o label
+      margin-left: 15px;
+      font-weight: bold;
+    }
+
+    .p-info {
+      color: gray;
+      font-weight: normal;
+    }
+  }
+
+  .btns-div {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+
+    .btns-btn {
+      border-radius: 0 !important;
+      width: 150px;
+      padding: 10px;
+    }
+  }
+}

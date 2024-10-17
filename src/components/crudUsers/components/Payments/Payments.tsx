@@ -1,19 +1,86 @@
 import { Formik } from "formik";
-import { Table } from "antd";
-import { initialValues, dataSource, columns, PROPS_FORM } from "./utils";
-import { PAYMENT_DATA_VALIDATION } from "./validation";
+import { PAYMENT_DATA_VALIDATION } from "./PaymentForm/validation/validation";
+import { payment_url, PostPayment } from "./hooks/PaymentData";
+import { useNavigate } from "react-router-dom";
 import Container from "../Container/Container";
 import MultiStepForm from "./PaymentForm/MultiStepForm";
+import Summary from "./Summary/Summary";
 
 import "./Payments.scss";
 
+export type PROPS_FORM = {
+  fullName: string;
+  email: string;
+  cpfOrCnpj: string;
+  phone: string;
+  cep: string;
+  address: string;
+  addressNumber: string;
+  complement: string;
+  neighborhood: string;
+  city: string;
+  uf: string;
+  creditCardNumber: string;
+  creditCardName: string;
+  expirationCard: string;
+  cvv: string;
+  paymentFormInstallment: string;
+};
+
+const initialValues: PROPS_FORM = {
+  fullName: "",
+  email: "",
+  cpfOrCnpj: "",
+  phone: "",
+  cep: "",
+  address: "",
+  addressNumber: "",
+  complement: "",
+  neighborhood: "",
+  city: "",
+  uf: "",
+  creditCardNumber: "",
+  creditCardName: "",
+  expirationCard: "",
+  cvv: "",
+  paymentFormInstallment: "",
+};
+
 const Payments = () => {
-  const handleSubmit = (values: PROPS_FORM) => {
+  const navigate = useNavigate();
+
+  const handleSubmit = async (values: PROPS_FORM) => {
     if (!values) {
       return;
     }
 
-    console.log(values);
+    const data = {
+      ...values,
+      UserIdentification: {
+        fullName: values.fullName,
+        email: values.email,
+        cpfOrCnpj: values.cpfOrCnpj,
+        phone: values.phone,
+        address: values.address,
+        addressNumber: values.addressNumber,
+        complement: values.complement,
+        neighborhood: values.neighborhood,
+        city: values.city,
+        uf: values.uf,
+        zipCode: values.cep,
+      },
+      PaymentForm: {
+        paymentFormInstallment: values.paymentFormInstallment,
+      },
+    };
+
+    try {
+      await PostPayment(payment_url, data);
+
+      navigate("/users/successul-payment");
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
@@ -29,15 +96,7 @@ const Payments = () => {
           <MultiStepForm />
         </Formik>
 
-        <div className="table-container">
-          <h3>Resumo da compra</h3>
-
-          <Table dataSource={dataSource} columns={columns} />
-
-          <p>
-            Valor total: <span>R$ 100,00</span>
-          </p>
-        </div>
+        <Summary />
       </div>
     </Container>
   );
