@@ -6,7 +6,7 @@ export const PAYMENT_DATA_VALIDATION = Yup.object().shape({
   cpfOrCnpj: Yup.string(),
   phone: Yup.string(),
   cep: Yup.string(),
-  address: Yup.string(),
+  street: Yup.string(),
   addressNumber: Yup.string(),
   complement: Yup.string(),
   neighborhood: Yup.string(),

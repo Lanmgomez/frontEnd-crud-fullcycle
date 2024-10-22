@@ -14,7 +14,7 @@ export type PROPS_FORM = {
   cpfOrCnpj: string;
   phone: string;
   cep: string;
-  address: string;
+  street: string;
   addressNumber: string;
   complement: string;
   neighborhood: string;
@@ -33,7 +33,7 @@ const initialValues: PROPS_FORM = {
   cpfOrCnpj: "",
   phone: "",
   cep: "",
-  address: "",
+  street: "",
   addressNumber: "",
   complement: "",
   neighborhood: "",
@@ -61,7 +61,9 @@ const Payments = () => {
         email: values.email,
         cpfOrCnpj: values.cpfOrCnpj,
         phone: values.phone,
-        address: values.address,
+      },
+      UserAddress: {
+        street: values.street,
         addressNumber: values.addressNumber,
         complement: values.complement,
         neighborhood: values.neighborhood,

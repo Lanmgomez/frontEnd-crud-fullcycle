@@ -25,7 +25,7 @@ const PaymentStep2 = () => {
 
     setValues((prevValues) => ({
       ...prevValues,
-      address: data.logradouro,
+      street: data.logradouro,
       complement: data.complemento,
       neighborhood: data.bairro,
       city: data.localidade,
@@ -80,12 +80,12 @@ const PaymentStep2 = () => {
           </span>
           <FormAntd.Item>
             <Input
-              name="address"
+              name="street"
               className="input-form"
               placeholder="Digite seu nome..."
               type="text"
-              onChange={(e) => setFieldValue("address", e.target.value)}
-              value={values.address}
+              onChange={(e) => setFieldValue("street", e.target.value)}
+              value={values.street}
             />
           </FormAntd.Item>
         </div>

@@ -35,7 +35,7 @@ const MultiStepForm = () => {
 
   const disabledStep2 =
     !values.cep ||
-    !values.address ||
+    !values.street ||
     !values.addressNumber ||
     !values.neighborhood ||
     !values.city ||
