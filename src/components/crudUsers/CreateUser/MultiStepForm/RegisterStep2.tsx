@@ -1,10 +1,10 @@
 import { Form as FormAntd, Input } from "antd";
 import { useFormikContext, Form } from "formik";
 import { PROPS_FORM } from "../../EditCard/EditCard";
+import { MaskPhone } from "../../../utils";
+import ErrorMessage from "../../../ErrorMessages/ErrorMessage";
 
 import "../CreateUser.scss";
-import ErrorMessage from "../../ErrorMessages/ErrorMessage";
-import { MaskPhone } from "../../../../utils";
 
 const RegisterStep2 = () => {
   const { setFieldValue, errors, touched, values } =

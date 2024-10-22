@@ -1,10 +1,10 @@
 import { Formik } from "formik";
 import { PROPS_FORM } from "../EditCard/EditCard";
-import MultiStepForm from "./MultiStepForm/MultiStepForm";
 import { validationSchema } from "../EditCard/validations";
-import { CreateNewUser, usersUrl } from "../../hooks/CrudUsersData";
+import { CreateNewUser, usersUrl } from "../hooks/CrudUsersData";
 import { useNavigate } from "react-router-dom";
-import { handleSuccessNotification } from "../../../utils";
+import { handleSuccessNotification } from "../../utils";
+import MultiStepForm from "./MultiStepForm/MultiStepForm";
 
 const initialValues: PROPS_FORM = {
   name: "",

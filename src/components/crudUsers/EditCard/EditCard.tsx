@@ -1,13 +1,14 @@
 import { Formik } from "formik";
-import FormUser from "./Form/FormUser";
-import { validationSchema } from "./validations";
 import { useNavigate, useParams } from "react-router-dom";
+import { validationSchema } from "./validations";
 import {
   handleErrorNotification,
   handleSuccessNotification,
-} from "../../../utils";
-import { UpdateUsersData, usersUrl } from "../../hooks/CrudUsersData";
-import Container from "../Container/Container";
+} from "../../utils";
+import { UpdateUsersData, usersUrl } from "../hooks/CrudUsersData";
+import FormUser from "./Form/FormUser";
+import Container from "../../Container/Container";
+
 export type PROPS_FORM = {
   name: string;
   lastname: string;

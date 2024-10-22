@@ -1,10 +1,10 @@
 import { DatePicker, Form as FormAntd, Input } from "antd";
 import { Form, useFormikContext } from "formik";
+import { PROPS_FORM } from "../../EditCard/EditCard";
+import ErrorMessage from "../../../ErrorMessages/ErrorMessage";
+import moment, { Moment } from "moment";
 
 import "../CreateUser.scss";
-import { PROPS_FORM } from "../../EditCard/EditCard";
-import ErrorMessage from "../../ErrorMessages/ErrorMessage";
-import moment, { Moment } from "moment";
 
 const RegisterStep1 = () => {
   const { setFieldValue, errors, touched, values } =

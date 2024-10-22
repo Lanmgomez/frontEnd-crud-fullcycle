@@ -1,10 +1,10 @@
-import Crud from "../../Crud";
-import UserCardInfosById from "../UserCardInfosByID/UserCardInfosById";
-import EditCard from "../EditCard/EditCard";
-import CreateUser from "../CreateUser/CreateUser";
-import Login from "../../../Login/Login";
-import CreateNewAccount from "../../../Login/CreateNewAccount/CreateNewAccount";
-import { LogsRegisters } from "../LogsRegisters/LogsRegisters";
+import Crud from "../CrudUsers/Crud";
+import UserCardInfosById from "../CrudUsers/UserCardInfosByID/UserCardInfosById";
+import EditCard from "../CrudUsers/EditCard/EditCard";
+import CreateUser from "../CrudUsers/CreateUser/CreateUser";
+import Login from "../Login/Login";
+import CreateNewAccount from "../Login/CreateNewAccount/CreateNewAccount";
+import LogsRegisters from "../LogsRegisters/LogsRegisters";
 import Container from "../Container/Container";
 import Payments from "../Payments/Payments";
 import SuccessfulBuy from "../Payments/sucessfulBuy/SuccessfulBuy";

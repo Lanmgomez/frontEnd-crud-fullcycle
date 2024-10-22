@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
+import { Button } from "antd";
 import { useNavigate, useParams } from "react-router-dom";
-import { usersUrl, GetUsersData, DeleteUser } from "../../hooks/CrudUsersData";
-import { formatDate, handleSuccessNotification, PROP } from "../../../utils";
+import { usersUrl, GetUsersData, DeleteUser } from "../hooks/CrudUsersData";
+import { formatDate, handleSuccessNotification, PROP } from "../../utils";
+import Modals from "../Modals/Modals";
+import Container from "../../Container/Container";
 
 import "./UserCardInfosById.scss";
-import { Button } from "antd";
-import Modals from "../Modals/Modals";
-import Container from "../Container/Container";
 
 const UserCardInfosById = () => {
   const { id } = useParams<{ id: string }>();

@@ -1,13 +1,13 @@
 import { useState } from "react";
+import { Button, Steps } from "antd";
+import { useFormikContext } from "formik";
+import { PROPS_FORM } from "../../EditCard/EditCard";
 import RegisterStep1 from "./RegisterStep1";
 import RegisterStep2 from "./RegisterStep2";
-import { Button, Steps } from "antd";
-
-import "../CreateUser.scss";
-import { PROPS_FORM } from "../../EditCard/EditCard";
-import { useFormikContext } from "formik";
 import RegisterStep3 from "./RegisterStep3";
 import Modals from "../../Modals/Modals";
+
+import "../CreateUser.scss";
 
 const { Step } = Steps;
 

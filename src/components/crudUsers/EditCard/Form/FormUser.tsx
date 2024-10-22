@@ -1,16 +1,16 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { Button, DatePicker, Form as FormAntd, Input } from "antd";
+import { useEffect, useState } from "react";
 import { useFormikContext, Form } from "formik";
+import { Button, DatePicker, Form as FormAntd, Input } from "antd";
+import { useParams } from "react-router-dom";
+import { GetUsersData, usersUrl } from "../../hooks/CrudUsersData";
+import { PROPS_FORM } from "../EditCard";
+import Modals from "../../Modals/Modals";
+import ErrorMessage from "../../../ErrorMessages/ErrorMessage";
+import moment from "moment";
 
 import "../EditCard.scss";
 import "../../Modals/Modals.scss";
-import { useEffect, useState } from "react";
-import Modals from "../../Modals/Modals";
-import { GetUsersData, usersUrl } from "../../../hooks/CrudUsersData";
-import { useParams } from "react-router-dom";
-import { PROPS_FORM } from "../EditCard";
-import ErrorMessage from "../../ErrorMessages/ErrorMessage";
-import moment from "moment";
 
 const FormUser = () => {
   const { id } = useParams<{ id: string }>();

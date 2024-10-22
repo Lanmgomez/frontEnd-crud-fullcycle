@@ -1,7 +1,7 @@
 import { Form as FormAntd, Input } from "antd";
 import { useFormikContext } from "formik";
 import { PROPS_FORM } from "../Payments";
-import { MaskPhone, inputMask } from "../../../../utils";
+import { MaskPhone, inputMask } from "../../utils";
 
 import "../Payments.scss";
 
