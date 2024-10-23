@@ -14,7 +14,7 @@
     flex-direction: column;
 
     a {
-      margin-bottom: 10px;
+      margin-bottom: $medium-space;
       color: $link-color;
       text-decoration: none;
 
@@ -30,7 +30,7 @@
     .bi-youtube,
     .bi-instagram,
     .bi-linkedin {
-      margin-right: 5px;
+      margin-right: $small-space;
     }
   }
 }
@@ -39,8 +39,8 @@
   display: flex;
   background-color: $secondary-color;
   margin: -40px;
-  margin-top: 40px;
-  margin-left: 5px;
+  margin-top: $xxxlarge-space;
+  margin-left: $small-space;
 }
 
 .footer-downside {
@@ -48,16 +48,16 @@
   flex-direction: column;
   background-color: $primary-color;
   margin: -40px;
-  margin-top: 40px;
+  margin-top: $xxxlarge-space;
   color: $quaternary-color;
 
   .footer-div-downside {
     display: flex;
-    padding: 10px;
+    padding: $medium-space;
     justify-content: center;
 
     div {
-      padding: 10px;
+      padding: $medium-space;
       font-weight: bold;
     }
   }
@@ -65,7 +65,7 @@
   .footer-div-downside-lorem {
     display: flex;
     flex-direction: column;
-    padding-left: 20px;
+    padding-left: $xlarge-space;
     margin-top: -20px;
   }
 }
