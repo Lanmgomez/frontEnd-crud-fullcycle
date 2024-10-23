@@ -1,11 +1,11 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useState, useEffect } from "react";
-import { GetUsersData, loginLogsUrl } from "../../hooks/CrudUsersData";
+import { Pagination } from "antd";
+import { formatDateTime } from "../utils";
+import { GetUsersData, loginLogsUrl } from "../CrudUsers/hooks/CrudUsersData";
+import Container from "../Container/Container";
 
 import "./LogsRegisters.scss";
-import { formatDateTime } from "../../../utils";
-import { Pagination } from "antd";
-import Container from "../Container/Container";
 
 type PROP = {
   id: number;
@@ -18,7 +18,7 @@ type PROP = {
   status: string;
 };
 
-export const LogsRegisters = () => {
+const LogsRegisters = () => {
   const [logsRegisters, setLogsRegisters] = useState<PROP[]>([]);
   const [page, setPage] = useState<number>(1);
 
@@ -97,3 +97,5 @@ export const LogsRegisters = () => {
     </Container>
   );
 };
+
+export default LogsRegisters;

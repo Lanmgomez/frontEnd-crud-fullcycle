@@ -1,4 +1,4 @@
-import { handleResponse } from "../../../../utils";
+import { handleResponse } from "../../utils";
 
 export const payment_url = "http://localhost:5000/payments";
 export const uf_list_url = "http://localhost:5000/payments/uf-list";

@@ -1,15 +1,13 @@
-import { Formik } from "formik";
-
 import * as Yup from "yup";
-
-import LoginForm from "./LoginForm/LoginForm";
-
-import "./Login.scss";
+import { useState } from "react";
+import { Formik } from "formik";
+import { useNavigate } from "react-router-dom";
 import { LoginRequest, loginUrl } from "./Hooks/LoginData";
 import { handleErrorNotification, SetInLocalStorageData } from "../utils";
-import { useNavigate } from "react-router-dom";
-import { useState } from "react";
-import Container from "../crudUsers/components/Container/Container";
+import LoginForm from "./LoginForm/LoginForm";
+import Container from "../Container/Container";
+
+import "./Login.scss";
 
 export type PROPS_FORM = {
   userName: string;

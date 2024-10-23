@@ -1,9 +1,11 @@
-import { Form as FormAntd, Input } from "antd";
+import { Form as FormAntd, Input, Typography } from "antd";
 import { useFormikContext } from "formik";
 import { PROPS_FORM } from "../Payments";
-import { MaskPhone, inputMask } from "../../../../utils";
+import { MaskPhone, inputMask } from "../../utils";
 
 import "../Payments.scss";
+
+const { Text } = Typography;
 
 const PaymentStep1 = () => {
   const { values, setFieldValue } = useFormikContext<PROPS_FORM>();
@@ -21,9 +23,10 @@ const PaymentStep1 = () => {
     <>
       <div className="form-inputs-father">
         <div className="form-input-child">
-          <span>
+          <Text>
             Nome completo: <span className="asterisk">*</span>
-          </span>
+          </Text>
+
           <FormAntd.Item>
             <Input
               name="fullName"
@@ -37,9 +40,10 @@ const PaymentStep1 = () => {
         </div>
 
         <div className="form-input-child">
-          <span>
+          <Text>
             Email: <span className="asterisk">*</span>
-          </span>
+          </Text>
+
           <FormAntd.Item>
             <Input
               name="email"
@@ -55,9 +59,10 @@ const PaymentStep1 = () => {
 
       <div className="form-inputs-father">
         <div className="form-input-child">
-          <span>
+          <Text>
             CPF ou CNPJ: <span className="asterisk">*</span>
-          </span>
+          </Text>
+
           <FormAntd.Item>
             <Input
               name="cpfOrCnpj"
@@ -72,9 +77,10 @@ const PaymentStep1 = () => {
         </div>
 
         <div className="form-input-child">
-          <span>
+          <Text>
             Celular com DDD: <span className="asterisk">*</span>
-          </span>
+          </Text>
+
           <FormAntd.Item>
             <Input
               name="phone"

@@ -1,10 +1,12 @@
-import { Form as FormAntd, Input } from "antd";
+import { Form as FormAntd, Input, Typography } from "antd";
 import { useFormikContext, Form } from "formik";
 import { PROPS_FORM } from "../../EditCard/EditCard";
+import { MaskPhone } from "../../../utils";
+import ErrorMessage from "../../../ErrorMessages/ErrorMessage";
 
 import "../CreateUser.scss";
-import ErrorMessage from "../../ErrorMessages/ErrorMessage";
-import { MaskPhone } from "../../../../utils";
+
+const { Text } = Typography;
 
 const RegisterStep2 = () => {
   const { setFieldValue, errors, touched, values } =
@@ -14,9 +16,10 @@ const RegisterStep2 = () => {
     <Form className="form">
       <h4 className="form-title">Preencha todos os campos abaixo</h4>
 
-      <span className="form-span">
+      <Text className="form-span">
         Email: <span className="asterisk">*</span>
-      </span>
+      </Text>
+
       <FormAntd.Item>
         <Input
           name="email"
@@ -29,9 +32,10 @@ const RegisterStep2 = () => {
       </FormAntd.Item>
       <ErrorMessage error={errors.email} touched={touched.email} />
 
-      <span className="form-span">
+      <Text className="form-span">
         Telefone: <span className="asterisk">*</span>
-      </span>
+      </Text>
+
       <FormAntd.Item>
         <Input
           name="phone"
@@ -45,9 +49,10 @@ const RegisterStep2 = () => {
       </FormAntd.Item>
       <ErrorMessage error={errors.phone} touched={touched.phone} />
 
-      <span className="form-span">
+      <Text className="form-span">
         Endereço: <span className="asterisk">*</span>
-      </span>
+      </Text>
+
       <FormAntd.Item>
         <Input
           name="address"

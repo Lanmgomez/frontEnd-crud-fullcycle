@@ -1,10 +1,11 @@
-import { Form as FormAntd, Input, Select } from "antd";
+import { Form as FormAntd, Input, Select, Typography } from "antd";
 import { PROPS_FORM } from "../Payments";
 import { useFormikContext } from "formik";
 
 import "../Payments.scss";
 
 const { Option } = Select;
+const { Text } = Typography;
 
 const PaymentStep3 = () => {
   const { values, setFieldValue } = useFormikContext<PROPS_FORM>();
@@ -50,9 +51,10 @@ const PaymentStep3 = () => {
   return (
     <>
       <div className="cep-input">
-        <span>
+        <Text>
           Número do cartão: <span className="asterisk">*</span>
-        </span>
+        </Text>
+
         <FormAntd.Item>
           <Input
             name="creditCardNumber"
@@ -67,9 +69,10 @@ const PaymentStep3 = () => {
       </div>
 
       <div className="cep-input">
-        <span>
+        <Text>
           Nome (Igual no cartão): <span className="asterisk">*</span>
-        </span>
+        </Text>
+
         <FormAntd.Item>
           <Input
             name="creditCardName"
@@ -84,9 +87,10 @@ const PaymentStep3 = () => {
 
       <div className="form-inputs-father">
         <div className="form-input-child">
-          <span>
+          <Text>
             Validade: <span className="asterisk">*</span>
-          </span>
+          </Text>
+
           <FormAntd.Item>
             <Input
               name="expirationCard"
@@ -101,9 +105,10 @@ const PaymentStep3 = () => {
         </div>
 
         <div className="form-input-child">
-          <span>
+          <Text>
             CVV: <span className="asterisk">*</span>
-          </span>
+          </Text>
+
           <FormAntd.Item>
             <Input
               name="cvv"
@@ -119,9 +124,10 @@ const PaymentStep3 = () => {
       </div>
 
       <div className="cep-input">
-        <span>
+        <Text>
           Selecionar parcelas: <span className="asterisk">*</span>
-        </span>
+        </Text>
+
         <Select
           placeholder="Selecione o número de parcelas..."
           onChange={(value) => setFieldValue("paymentFormInstallment", value)}

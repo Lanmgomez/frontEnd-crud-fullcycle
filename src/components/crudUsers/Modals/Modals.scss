@@ -1,0 +1,15 @@
+@import "../../styles/variables.scss";
+
+.modal-title {
+  display: flex;
+  width: 100%;
+
+  i.bi.bi-exclamation-circle-fill {
+    color: #faad14;
+  }
+
+  .p-modal-title {
+    margin-left: $medium-space;
+    margin-top: $zero-space;
+  }
+}

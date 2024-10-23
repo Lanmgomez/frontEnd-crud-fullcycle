@@ -4,13 +4,13 @@
   display: flex;
   background-color: $tertiary-color;
   margin: -40px;
-  margin-bottom: 20px;
+  margin-bottom: $xlarge-space;
   border-bottom: 1px solid $selected-color;
 
   .header-text {
-    margin-left: 40px;
-    margin-right: 40px;
-    font-weight: 700;
+    margin-left: $xxxlarge-space;
+    margin-right: $xxxlarge-space;
+    font-weight: $xxlarge-font-weight;
     color: $primary-color;
     width: 100%;
     display: flex;
@@ -18,8 +18,8 @@
 
     .bi-badge-8k,
     .bi-badge-hd {
-      color: gold;
-      font-size: 25px;
+      color: $color-gold;
+      font-size: $xlarge-space;
     }
   }
 }

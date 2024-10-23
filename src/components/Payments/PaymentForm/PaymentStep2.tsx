@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useEffect, useState } from "react";
-import { Form as FormAntd, Input, Select } from "antd";
+import { Form as FormAntd, Input, Select, Typography } from "antd";
 import { PROPS_FORM } from "../Payments";
 import { useFormikContext } from "formik";
 import { GetData, uf_list_url, via_cep_url } from "../hooks/PaymentData";
@@ -8,6 +8,7 @@ import { GetData, uf_list_url, via_cep_url } from "../hooks/PaymentData";
 import "../Payments.scss";
 
 const { Option } = Select;
+const { Text } = Typography;
 
 type PROP_STATES_LIST = {
   id: number;
@@ -57,9 +58,10 @@ const PaymentStep2 = () => {
   return (
     <>
       <div className="cep-input">
-        <span>
+        <Text>
           CEP: <span className="asterisk">*</span>
-        </span>
+        </Text>
+
         <FormAntd.Item>
           <Input
             name="cep"
@@ -75,9 +77,10 @@ const PaymentStep2 = () => {
 
       <div className="form-inputs-father">
         <div className="form-input-child">
-          <span>
+          <Text>
             Rua: <span className="asterisk">*</span>
-          </span>
+          </Text>
+
           <FormAntd.Item>
             <Input
               name="street"
@@ -91,9 +94,9 @@ const PaymentStep2 = () => {
         </div>
 
         <div className="form-input-child">
-          <span>
+          <Text>
             Número: <span className="asterisk">*</span>
-          </span>
+          </Text>
           <FormAntd.Item>
             <Input
               name="addressNumber"
@@ -109,7 +112,8 @@ const PaymentStep2 = () => {
 
       <div className="form-inputs-father">
         <div className="form-input-child">
-          <span>Complemento:</span>
+          <Text>Complemento:</Text>
+
           <FormAntd.Item>
             <Input
               name="complement"
@@ -123,9 +127,10 @@ const PaymentStep2 = () => {
         </div>
 
         <div className="form-input-child">
-          <span>
+          <Text>
             Bairro: <span className="asterisk">*</span>
-          </span>
+          </Text>
+
           <FormAntd.Item>
             <Input
               name="neighborhood"
@@ -141,9 +146,10 @@ const PaymentStep2 = () => {
 
       <div className="form-inputs-father">
         <div className="form-input-child">
-          <span>
+          <Text>
             Cidade: <span className="asterisk">*</span>
-          </span>
+          </Text>
+
           <FormAntd.Item>
             <Input
               name="city"
@@ -157,9 +163,10 @@ const PaymentStep2 = () => {
         </div>
 
         <div className="form-input-child">
-          <span>
+          <Text>
             UF: <span className="asterisk">*</span>
-          </span>
+          </Text>
+
           <Select
             placeholder="Selecione uma UF..."
             onChange={(value) => setFieldValue("uf", value)}

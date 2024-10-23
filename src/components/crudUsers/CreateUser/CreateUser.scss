@@ -1,3 +1,5 @@
+@import "../../styles/variables.scss";
+
 .create-user {
   min-height: 628px;
   margin-left: 20%;
@@ -6,7 +8,7 @@
     display: flex;
     flex-direction: column;
     width: 500px;
-    margin: 0 auto;
+    margin: $zero-space auto;
   }
 
   .steps-content {
@@ -14,19 +16,23 @@
     flex-direction: column;
     align-items: center;
     text-align: left;
-    margin-top: 20px;
+    margin-top: $xlarge-space;
   }
 
   .steps-action {
     display: flex;
     text-align: right;
-    margin-top: 15px;
+    margin-top: $large-space;
     justify-content: end;
     margin-right: 100px;
   }
 
   .form {
     width: 300px;
+
+    .ant-typography {
+      font-size: $large-font-size;
+    }
 
     .form-title {
       text-align: center;
@@ -36,15 +42,15 @@
       font-weight: bolder;
 
       .asterisk {
-        color: red;
+        color: $bg-color-red;
       }
     }
 
     .input-form {
       width: 100%;
-      height: 35px;
-      border-radius: 0;
-      background-color: rgb(253, 245, 245);
+      height: $xxlarge-space;
+      border-radius: $zero-space;
+      margin-bottom: $medium-space;
     }
   }
 }

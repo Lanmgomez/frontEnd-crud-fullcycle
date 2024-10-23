@@ -1,11 +1,11 @@
 import { useState, useEffect } from "react";
+import { Pagination } from "antd";
 import { usersUrl, GetUsersData } from "./hooks/CrudUsersData";
+import UserCard from "./UserCard/UserCard";
+import EmptyUsers from "./EmptyUsers/EmptyUsers";
+import Container from "../Container/Container";
 
 import "./Crud.scss";
-import UserCard from "./components/UserCard";
-import EmptyUsers from "./components/EmptyUsers/EmptyUsers";
-import { Pagination } from "antd";
-import Container from "./components/Container/Container";
 
 const Crud = () => {
   const [showUsers, setShowUsers] = useState([]);
@@ -39,6 +39,7 @@ const Crud = () => {
         <h1>CRUD Todo List</h1>
 
         <UserCard showUsersCrud={paginatedUsersCrud} />
+
         <Pagination
           pageSize={3}
           onChange={(page) => setPage(page)}
