@@ -6,6 +6,7 @@ import { LoginRequest, loginUrl } from "./Hooks/LoginData";
 import { handleErrorNotification, SetInLocalStorageData } from "../utils";
 import LoginForm from "./LoginForm/LoginForm";
 import Container from "../Container/Container";
+import Image from "../../assets/LoginBackground.svg";
 
 import "./Login.scss";
 
@@ -54,6 +55,8 @@ const Login = () => {
   return (
     <Container>
       <div className="login-container">
+        <img className="login-image" src={Image} alt="login-image" />
+
         <div className="login-card">
           <hgroup>
             <h1>Login</h1>
