@@ -2,16 +2,22 @@
 
 .login-container {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  height: 62vh;
-  margin-top: 10vh;
+  justify-content: center;
+
+  .login-image {
+    width: 90%;
+    margin-left: -20%;
+    margin-top: -10%;
+    margin-bottom: -10%;
+  }
 
   .login-card {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 400px;
+    margin-left: $xxlarge-space;
     border: 1px solid $color-lightgray;
     box-shadow: 0 0 $xlarge-space $color-lightgray !important;
 
@@ -28,6 +34,10 @@
         border-radius: $zero-space !important;
       }
 
+      .ant-input-outlined {
+        margin-bottom: $medium-space !important;
+      }
+
       .login-btns {
         margin-top: $xlarge-space;
         margin-bottom: $xlarge-space;
@@ -39,6 +49,12 @@
         margin-top: -25px;
         font-weight: $xlarge-font-weight;
       }
+    }
+  }
+
+  @media screen and (max-width: 1000px) {
+    .login-image {
+      display: none;
     }
   }
 }

@@ -1,5 +1,5 @@
-import { Form, useFormikContext } from "formik";
-import { Form as FormAntd, Input, Button } from "antd";
+import { Form as FormikForm, useFormikContext } from "formik";
+import { Form, Input, Button, Typography } from "antd";
 import { PROPS_FORM } from "../Login";
 import { createNewAccountUrl, LoginRequest } from "../Hooks/LoginData";
 import { handleErrorNotification, SetInLocalStorageData } from "../../utils";
@@ -7,6 +7,8 @@ import { useNavigate } from "react-router-dom";
 import ErrorMessage from "../../ErrorMessages/ErrorMessage";
 
 import "../Login.scss";
+
+const { Text: Title } = Typography;
 
 type PROP = {
   showLoginOrCreateNewAccountBtn: boolean;
@@ -62,9 +64,10 @@ const LoginForm = ({
   const passwordNotMatch = values.password !== values.confirmPassword;
 
   return (
-    <Form className="form">
-      <span className="form-span">Usuário:</span>
-      <FormAntd.Item>
+    <FormikForm className="form">
+      <Title className="form-span">Usuário:</Title>
+
+      <Form.Item>
         <Input
           name="userName"
           className="input-form"
@@ -73,11 +76,12 @@ const LoginForm = ({
           onChange={(e) => setFieldValue("userName", e.target.value)}
           value={values.userName}
         />
-      </FormAntd.Item>
+      </Form.Item>
       <ErrorMessage error={errors.userName} touched={touched.userName} />
 
-      <span className="form-span">Senha:</span>
-      <FormAntd.Item>
+      <Title className="form-span">Senha:</Title>
+
+      <Form.Item>
         <Input.Password
           name="password"
           className="input-form"
@@ -86,13 +90,14 @@ const LoginForm = ({
           onChange={(e) => setFieldValue("password", e.target.value)}
           value={values.password}
         />
-      </FormAntd.Item>
+      </Form.Item>
       <ErrorMessage error={errors.password} touched={touched.password} />
 
       {!showLoginOrCreateNewAccountBtn && (
         <>
-          <span className="form-span">Confirmar Senha:</span>
-          <FormAntd.Item>
+          <Title className="form-span">Confirmar Senha:</Title>
+
+          <Form.Item>
             <Input.Password
               name="confirmPassword"
               className="input-form"
@@ -101,7 +106,7 @@ const LoginForm = ({
               onChange={(e) => setFieldValue("confirmPassword", e.target.value)}
               value={values.confirmPassword}
             />
-          </FormAntd.Item>
+          </Form.Item>
           {ValidatePassword(values)}
         </>
       )}
@@ -134,7 +139,7 @@ const LoginForm = ({
           </Button>
         </>
       )}
-    </Form>
+    </FormikForm>
   );
 };
 
