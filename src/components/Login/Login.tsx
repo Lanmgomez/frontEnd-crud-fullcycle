@@ -55,13 +55,7 @@ const Login = () => {
   return (
     <Container>
       <div className="login-container">
-        <img
-          // width={"100%"}
-          // height={"100%"}
-          className="login-image"
-          src={Image}
-          alt="login-image"
-        />
+        <img className="login-image" src={Image} alt="login-image" />
 
         <div className="login-card">
           <hgroup>
