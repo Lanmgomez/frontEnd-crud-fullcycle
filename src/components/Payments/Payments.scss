@@ -32,7 +32,7 @@
     }
 
     .steps-container {
-      border-top: 1px solid lightgrey;
+      border-top: 1px solid $color-lightgray;
 
       .ant-steps-item-container {
         padding: $xlarge-space;
@@ -71,8 +71,8 @@
 
   .table-container {
     margin-left: 5%;
-    border: 1px solid lightgrey;
-    box-shadow: 1px 1px $small-space lightgrey;
+    border: 1px solid $color-lightgray;
+    box-shadow: 1px 1px $small-space $color-lightgray;
     height: 250px;
     min-width: 350px;
 
