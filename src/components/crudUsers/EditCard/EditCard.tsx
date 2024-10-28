@@ -31,6 +31,7 @@ function EditCard() {
   const { id } = useParams<{ id: string }>();
 
   const navigate = useNavigate();
+
   const handleSubmit = async (values: PROPS_FORM) => {
     if (!values) {
       return;

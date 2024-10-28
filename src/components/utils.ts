@@ -90,22 +90,6 @@ export const formatDateTime = (dateTime: string) => {
   return `${hours}h:${minutes}min, em ${day}/${month}/${year}.`;
 };
 
-// Verifica se a requisição PUT ou PATCH retorna dados
-const parseJSONResponse = async (response: Response) => {
-  const contentType = response.headers.get("Content-Type");
-  if (contentType && contentType.includes("application/json")) {
-    return await response.json();
-  }
-  return {}; // Retorna um objeto vazio se não houver JSON
-};
-
-export const handleResponse = async (response: Response) => {
-  if (!response.ok) {
-    throw new Error("Erro na requisição: " + response.statusText);
-  }
-  return await parseJSONResponse(response);
-};
-
 export function inputMask(numbers: string) {
   if (!numbers) {
     return undefined;

@@ -1,17 +1,18 @@
-import { handleResponse } from "../../utils";
+import axios from "axios";
 
 export const usersUrl = "http://localhost:5000/crudusers";
 export const loginLogsUrl = "http://localhost:5000/login";
 
-export const GetUsersData = async (url: string) => {
+const GetUsersData = async (url: string) => {
   try {
-    const response = await fetch(url, {
-      mode: "cors",
+    const response = await axios({
       method: "GET",
+      url: url,
       headers: { "Content-Type": "application/json" },
+      withCredentials: false, // mudar quando enviar cookies e credenciais
     });
 
-    const data = await response.json();
+    const data = await response.data;
     return data;
   } catch (error) {
     console.log(error);
@@ -19,50 +20,53 @@ export const GetUsersData = async (url: string) => {
   }
 };
 
-export const UpdateUsersData = async (url: string, body: object) => {
+const UpdateUsersData = async (url: string, body: object) => {
   try {
-    const response = await fetch(url, {
-      mode: "cors",
+    const response = await axios({
       method: "PUT",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(body),
+      url: url,
+      data: body,
+      withCredentials: false,
     });
 
-    return await handleResponse(response);
+    return await response.data;
   } catch (error) {
     console.log(error);
     throw error;
   }
 };
 
-export const DeleteUser = async (url: string, body: object) => {
+const DeleteUser = async (url: string, body: object) => {
   try {
-    const response = await fetch(url, {
-      mode: "cors",
+    const response = await axios(url, {
       method: "PATCH",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(body),
+      data: body,
+      withCredentials: false,
     });
 
-    return await handleResponse(response);
+    return await response;
   } catch (error) {
     console.log(error);
     throw error;
   }
 };
 
-export const CreateNewUser = async (url: string, body: object) => {
+const CreateNewUser = async (url: string, body: object) => {
   try {
-    const response = await fetch(url, {
-      mode: "cors",
+    const response = await axios(url, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(body),
+      data: body,
+      withCredentials: false,
     });
 
-    return await handleResponse(response);
+    return await response;
   } catch (error) {
     console.log(error);
     throw error;
   }
 };
+
+export { GetUsersData, UpdateUsersData, DeleteUser, CreateNewUser };

@@ -1,32 +1,33 @@
+import axios from "axios";
+
 export const loginUrl = "http://localhost:5000/login";
 
 export const createNewAccountUrl =
   "http://localhost:5000/login/create-new-user";
 
-export const LoginRequest = async (url: string, body: object) => {
+const LoginRequest = async (url: string, body: object) => {
   try {
-    const response = await fetch(url, {
-      mode: "cors",
+    const response = await axios({
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(body),
+      url: url,
+      data: body,
+      withCredentials: false, // mudar quando enviar cookies e credenciais
     });
 
-    // Verifica se o status está fora do intervalo 2xx (200-299)
-    if (!response.ok) {
-      // Lança o erro com a mensagem de status e a resposta JSON
-      const errorData = await response.json();
+    if (response.status < 200 || response.status > 300) {
       throw new Error(
         `Error: ${response.status} - ${
-          errorData.message || response.statusText
+          response.data.message || response.statusText
         }`
       );
     }
 
-    const data = await response.json();
-    return data;
+    return await response.data;
   } catch (error) {
     console.log(error);
     throw error;
   }
 };
+
+export { LoginRequest };
