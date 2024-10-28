@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "./App.scss";
 import { useEffect, useState } from "react";
 import MenuSideBar from "./components/Menu/MenuSideBar";
+
 function App() {
   const navigate = useNavigate();
   const [isLogged, setIsLogged] = useState<boolean>(false);
