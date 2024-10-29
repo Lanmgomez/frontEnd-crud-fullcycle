@@ -31,7 +31,7 @@ const UserCard = ({ showUsersCrud }: PROP_COMPONENT) => {
 
             <div className="labels">
               <p className="p-name">Status: </p>
-              <p className="p-info">Ativo</p>
+              <p className="p-info">{user.activeUser}</p>
             </div>
           </div>
 

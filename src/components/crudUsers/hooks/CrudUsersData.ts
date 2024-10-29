@@ -1,7 +1,8 @@
 import axios from "axios";
 
 export const usersUrl = "http://localhost:5000/crudusers";
-export const loginLogsUrl = "http://localhost:5000/login";
+
+export const searchUsersUrl = "http://localhost:5000/crudusers/search?search=";
 
 const GetUsersData = async (url: string) => {
   try {

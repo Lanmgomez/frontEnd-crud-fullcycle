@@ -2,7 +2,8 @@
 import { useState, useEffect } from "react";
 import { Pagination } from "antd";
 import { formatDateTime } from "../utils";
-import { GetUsersData, loginLogsUrl } from "../CrudUsers/hooks/CrudUsersData";
+import { GetUsersData } from "../CrudUsers/hooks/CrudUsersData";
+import { loginLogsUrl } from "../Login/Hooks/LoginData";
 import Container from "../Container/Container";
 
 import "./LogsRegisters.scss";

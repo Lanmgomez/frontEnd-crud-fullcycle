@@ -1,6 +1,7 @@
 import axios from "axios";
 
 export const loginUrl = "http://localhost:5000/login";
+export const loginLogsUrl = "http://localhost:5000/login";
 
 export const createNewAccountUrl =
   "http://localhost:5000/login/create-new-user";

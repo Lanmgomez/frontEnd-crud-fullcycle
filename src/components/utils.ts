@@ -8,6 +8,7 @@ export type PROP = {
   address: string;
   birthday: string;
   phone: number;
+  activeUser: string;
   createdAt: string;
   updatedAt: string;
 };
