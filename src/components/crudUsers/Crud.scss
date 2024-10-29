@@ -7,19 +7,20 @@
   margin: $zero-space $xxlarge-space;
   width: 100%;
 
+  h1 {
+    margin-left: $medium-space;
+  }
+
   .create-new-user-and-search-btn {
     display: flex;
     justify-content: space-between;
     width: 90%;
 
-    .ant-input-search
-      .ant-input-group
-      .ant-input-affix-wrapper:not(:last-child) {
-      border-start-start-radius: 0;
-      border-end-start-radius: 0;
-      margin-left: $medium-space;
-      width: 400px;
+    .ant-input-outlined {
+      max-width: 400px;
+      border-radius: 0;
       height: 40px;
+      margin-left: $medium-space;
     }
 
     .ant-input-search
@@ -101,16 +102,20 @@
     }
   }
 
-  // @media screen and (max-width: 895px) {
-  //   .ant-input-search
-  //     .ant-input-group
-  //     .ant-input-affix-wrapper:not(:last-child) {
-  //     width: 200px;
-  //     height: 40px;
-  //   }
+  @media screen and (max-width: 895px) {
+    .create-new-user-and-search-btn {
+      display: flex;
+      flex-direction: column;
+    }
 
-  //   .ant-btn.ant-btn-primary.ant-input-search-button {
-  //     margin-left: 45px;
-  //   }
-  // }
+    .add-user-btn {
+      margin-left: $medium-space;
+      margin-top: $xxxlarge-space;
+      width: 320px;
+    }
+
+    .ant-input-outlined {
+      width: 300px;
+    }
+  }
 }
