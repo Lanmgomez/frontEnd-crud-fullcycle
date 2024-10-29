@@ -4,6 +4,7 @@ import { usersUrl, GetUsersData } from "./hooks/CrudUsersData";
 import UserCard from "./UserCard/UserCard";
 import EmptyUsers from "./EmptyUsers/EmptyUsers";
 import Container from "../Container/Container";
+import SearchBar from "./SearchBar/SearchBar";
 
 import "./Crud.scss";
 
@@ -11,7 +12,7 @@ const Crud = () => {
   const [showUsers, setShowUsers] = useState([]);
   const [page, setPage] = useState(1);
 
-  const itensPerPage = 3;
+  const itensPerPage = 6;
   const startIndex = (page - 1) * itensPerPage;
   const endIndex = startIndex + itensPerPage;
   const paginatedUsersCrud = showUsers.slice(startIndex, endIndex);
@@ -38,10 +39,12 @@ const Crud = () => {
       <div className="crud-container">
         <h1>CRUD Todo List</h1>
 
+        <SearchBar />
+
         <UserCard showUsersCrud={paginatedUsersCrud} />
 
         <Pagination
-          pageSize={3}
+          pageSize={6}
           onChange={(page) => setPage(page)}
           current={page}
           total={showUsers.length}

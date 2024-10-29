@@ -16,12 +16,6 @@ const UserCard = ({ showUsersCrud }: PROP_COMPONENT) => {
 
   return (
     <div className="users-crud-container">
-      <div className="create-new-user-btn">
-        <Button type="primary" onClick={() => navigate("/users/create-user")}>
-          Adicionar Usuário
-        </Button>
-      </div>
-
       {showUsersCrud?.map((user: PROP) => (
         <div key={user.id} className="user-card">
           <div className="block-of-informations">
@@ -36,8 +30,8 @@ const UserCard = ({ showUsersCrud }: PROP_COMPONENT) => {
             </div>
 
             <div className="labels">
-              <p className="p-name">Email: </p>
-              <p className="p-info">{user.email}</p>
+              <p className="p-name">Status: </p>
+              <p className="p-info">Ativo</p>
             </div>
           </div>
 
